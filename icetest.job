@@ -1,0 +1,23 @@
+#!/bin/sh
+# Job script for icetest - BUILT FOR VORTEX 
+#PBS -l mem=40gb,pmem=1500mb
+#PBS -l walltime=50:00:00,nodes=4:ppn=8
+#PBS -m bae
+#PBS -M david.gwyther@utas.edu.au
+#PBS -N icetest.drag081_testing3
+
+cd /scratch/dgwyther/romsIceShelf_drag081_testing3
+
+source /etc/profile.d/modules.sh
+
+## module load netcdf/4.2.1.1-intel
+module load netcdf
+module load netcdf/3.6.3-intel
+
+## export LIBRARY_PATH=/apps/hdf/1.8.4/lib:$LIBRARY_PATH
+
+mpiexec_mpt ./oceanM  /scratch/dgwyther/romsIceShelf_drag081_testing3/ROMS/External/ocean_icetest.in > icetest.log
+
+
+exit
+##

@@ -1,0 +1,548 @@
+oceanM: posixio.c:234: px_pgout: Assertion `*posp == ((off_t)(-1)) || *posp == lseek(nciop->fd, 0, 1)' failed.
+MPI: On host r1i0n14, Program /scratch/dgwyther/romsIceShelf_drag081_testing3/oceanM, Rank 0, Process 14937 received signal SIGABRT/SIGIOT(6)
+
+
+MPI: --------stack traceback-------
+MPI: Attaching to program: /proc/14937/exe, process 14937
+MPI: Try: zypper install -C "debuginfo(build-id)=474097bd34a7d5895eb394c73dafa8ce4583dddf"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=09dae90d04b1e2e43758ce58845f026b4085aec9"
+MPI: (no debugging symbols found)...done.
+MPI: [Thread debugging using libthread_db enabled]
+MPI: Try: zypper install -C "debuginfo(build-id)=2f3040b47ab477519b3045352432f77c5bec1561"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=fe7c25bfb3e605f9d6c1cb00b3c5f96ed95be6e5"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=3e4f6bfee9fdf77ca975b77b8c325347d9228bb8"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=9fce76891ec687fe8a47f90c139697ddc2ca8d28"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=3ab0e657172da74344f4f4235e5b864c8cb312ae"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=106893f7e32c9411419ecc08a614950c6217bf3b"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=181860a35c8e9a0456dd6675f85c2eb0f062e956"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=44612b93c19e6567318299411987b113d2387081"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=4c05d1eb180f9c02b81a0c559c813dada91e0ca4"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=be256d8b11a96913706dc372f5b65c16d7196fca"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=e8358caa116d347873309fd2b418a97cb5fd3938"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=921b613df2f59194920ea4f00c63f4d22e9dc74a"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=e8d6173513f3af84e4ccb101e33685367333b153"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=74099e22dfce34d89519fb1c91632d14b305489d"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=0afa3ca5c673958cd5aa328864cff6ea12839f19"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=1a2a93fdbba67b62113824280d963c6863d90e9e"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=2c765dda306d9c8c6926b7b0880a9654c7b9e084"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=edccc13870bfee5e8d39250f738a2eb34a18957a"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=a2089b3f83847318de83daeea32a6873527f3f7a"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=db00a37b2af34cd1b054340bddb1c643ebf5b96d"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=1cf5b26ef10282fd45853d7c19563f4bc4028aca"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=1a662a0e4a2df1683a074daa3f93b25c60268820"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=3c97ddac09db79bfa1c4fa7f84d63fa00c22ce5c"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=7d7940c46e5ea77fb4896ce5dba45bc9299c5e0c"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=02c78a8ec7997130f18f6c4fdef78ed36b853133"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=f1e396fe2fd218a097a0fe16bd3e8951056cb0e6"
+MPI: (no debugging symbols found)...done.
+MPI: 0x00002aaaabc7a2f5 in waitpid () from /lib64/libpthread.so.0
+MPI: (gdb) #0  0x00002aaaabc7a2f5 in waitpid () from /lib64/libpthread.so.0
+MPI: #1  0x00002aaaab76bc14 in mpi_sgi_system (command=<optimized out>) at sig.c:89
+MPI: #2  MPI_SGI_stacktraceback (header=<optimized out>) at sig.c:272
+MPI: #3  0x00002aaaab76c5c5 in first_arriver_handler (signo=6, stack_trace_sem=0x2aaab20e0500) at sig.c:415
+MPI: #4  0x00002aaaab76c7c0 in slave_sig_handler (signo=6, siginfo=<optimized out>, extra=<optimized out>) at sig.c:494
+MPI: #5  <signal handler called>
+MPI: #6  0x00002aaaabebab35 in raise () from /lib64/libc.so.6
+MPI: #7  0x00002aaaabebc111 in abort () from /lib64/libc.so.6
+MPI: #8  0x00002aaaabeb39f0 in __assert_fail () from /lib64/libc.so.6
+MPI: #9  0x00002aaaab3b1c03 in px_pgout (nciop=<optimized out>, offset=<optimized out>, extent=<optimized out>, vp=0x206, posp=<optimized out>, $36=<optimized out>, $37=<optimized out>, $38=<optimized out>, $39=<optimized out>, $40=<optimized out>) at posixio.c:234
+MPI: #10 px_get (nciop=<optimized out>, pxp=<optimized out>, offset=<optimized out>, extent=<optimized out>, rflags=<optimized out>, vpp=<optimized out>, $24=<optimized out>, $25=<optimized out>, $26=<optimized out>, $27=<optimized out>, $28=<optimized out>, $29=<optimized out>) at posixio.c:517
+MPI: #11 ncio_px_get (nciop=0x3a59, offset=14937, extent=6, rflags=-1, vpp=0xffffffff) at posixio.c:705
+MPI: #12 0x00002aaaab39201f in NC_fill_double (xpp=<optimized out>, nelems=<optimized out>, $P9=<optimized out>, $Q0=<optimized out>) at putget.c:340
+MPI: #13 fill_NC_var (ncp=0x3a59, varp=0x3a59, varsize=6, recno=18446744073709551615) at putget.c:305
+MPI: #14 0x00002aaaab39b495 in NCfillrecord (ncp=<optimized out>, varpp=0x2ac4858, recno=<optimized out>, $`6=<optimized out>, $`7=<optimized out>, $`8=<optimized out>) at putget.c:401
+MPI: #15 NCvnrecs (ncp=<optimized out>, numrecs=<optimized out>, $`4=<optimized out>, $`5=<optimized out>) at putget.c:561
+MPI: #16 NC3_put_vara (ncid=14937, varid=14937, start=0x6, edges0=0xffffffffffffffff, value0=0xffffffff, memtype=-1407209920) at putget.c:5301
+MPI: #17 0x00002aaaab37eab1 in NC_put_vara (ncid=<optimized out>, varid=<optimized out>, start=<optimized out>, edges=<optimized out>, value=<optimized out>, memtype=<optimized out>, $N9=<optimized out>, $O0=<optimized out>, $O1=<optimized out>, $O2=<optimized out>, $O3=<optimized out>, $O4=<optimized out>) at dvarput.c:29
+MPI: #18 nc_put_vara_int (ncid=14937, varid=14937, startp=0x6, countp=0xffffffffffffffff, op=0xffffffff) at dvarput.c:453
+MPI: #19 0x00002aaaaaee7330 in nf_put_vara_int_ (fncid=0x3a59, fvarid=0x3a59, A3=0x6, A4=0xffffffffffffffff, A5=0xffffffff) at fort-varaio.c:103
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: warning: Range for type (null) has invalid bounds 1..-128
+MPI: #20 0x00002aaaaaf0c4df in NETCDF::nf90_put_var_1d_fourbyteint (ncid=@0x100020000, varid=@0x2000000000035, values=..., start=..., count=..., stride=Cannot access memory at address 0x0
+MPI: ) at netcdf_expanded.f90:695
+MPI: #21 0x00000000006e5c9c in mod_netcdf_mp_netcdf_put_ivar_1d_ ()
+MPI: #22 0x0000000000431920 in wrt_rst_ ()
+MPI: #23 0x0000000000459ad7 in output_ ()
+MPI: #24 0x000000000045446a in main3d_ ()
+MPI: #25 0x000000000040b71c in ocean_control_mod_mp_roms_run_ ()
+MPI: #26 0x000000000040b54e in MAIN__ ()
+MPI: #27 0x000000000040b29c in main ()
+MPI: (gdb) A debugging session is active.
+MPI: 
+MPI: 	Inferior 1 [process 14937] will be detached.
+MPI: 
+MPI: Quit anyway? (y or n) [answered Y; input not from terminal]
+MPI: Detaching from program: /proc/14937/exe, process 14937
+
+MPI: -----stack traceback ends-----
+MPI: On host r1i0n14, Program /scratch/dgwyther/romsIceShelf_drag081_testing3/oceanM, Rank 0, Process 14937: Dumping core on signal SIGABRT/SIGIOT(6) into directory /scratch/dgwyther/romsIceShelf_drag081_testing3
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+libc.so.6          00002AAAABEBAB35  Unknown               Unknown  Unknown
+libc.so.6          00002AAAABEBC111  Unknown               Unknown  Unknown
+libc.so.6          00002AAAABEB39F0  Unknown               Unknown  Unknown
+libnetcdf.so.7     00002AAAAB3B1C03  Unknown               Unknown  Unknown
+libnetcdf.so.7     00002AAAAB39201F  Unknown               Unknown  Unknown
+libnetcdf.so.7     00002AAAAB39B495  Unknown               Unknown  Unknown
+libnetcdf.so.7     00002AAAAB37EAB1  Unknown               Unknown  Unknown
+libnetcdff.so.5    00002AAAAAEE7330  Unknown               Unknown  Unknown
+libnetcdff.so.5    00002AAAAAF0C4DF  Unknown               Unknown  Unknown
+oceanM             00000000006E5C9C  Unknown               Unknown  Unknown
+oceanM             0000000000431920  Unknown               Unknown  Unknown
+oceanM             0000000000459AD7  Unknown               Unknown  Unknown
+oceanM             000000000045446A  Unknown               Unknown  Unknown
+oceanM             000000000040B71C  Unknown               Unknown  Unknown
+oceanM             000000000040B54E  Unknown               Unknown  Unknown
+oceanM             000000000040B29C  Unknown               Unknown  Unknown
+libc.so.6          00002AAAABEA6C16  Unknown               Unknown  Unknown
+oceanM             000000000040B199  Unknown               Unknown  Unknown
+MPI: MPI_COMM_WORLD rank 0 has terminated without calling MPI_Finalize()
+MPI: aborting job
+MPI: Received signal 6
+

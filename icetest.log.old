@@ -1,0 +1,1741 @@
+
+ Model Input Parameters:  ROMS/TOMS version 3.7  
+                          Sunday - September 28, 2014 -  7:30:26 AM
+ -----------------------------------------------------------------------------
+
+ Idealised Ice Shelf Application
+
+ Operating system : Linux
+ CPU/hardware     : x86_64
+ Compiler system  : ifort
+ Compiler command : /apps/sles11sp2/intel/composer_xe_2013.1.117/bin/intel64/ifort
+ Compiler flags   :  -ip -O3 -free -free -free
+
+ Input Script  : 
+
+ SVN Root URL  : https:://myroms.org/svn/src
+ SVN Revision  : exported
+
+ Local Root    : /scratch/dgwyther/romsIceShelf_drag081
+ Header Dir    : /scratch/dgwyther/romsIceShelf_drag081/ROMS/Include
+ Header file   : icetest.h
+ Analytical Dir: /scratch/dgwyther/romsIceShelf_drag081/ROMS/Functionals
+
+ Resolution, Grid 01: 0051x0101x024,  Parallel Nodes:  32,  Tiling: 004x008
+
+
+ Physical Parameters, Grid: 01
+ =============================
+
+    3260952  ntimes          Number of timesteps for 3-D equations.
+    300.000  dt              Timestep size (s) for 3-D equations.
+         30  ndtfast         Number of timesteps for 2-D equations between
+                               each 3D timestep.
+          1  ERstr           Starting ensemble/perturbation run number.
+          1  ERend           Ending ensemble/perturbation run number.
+         -1  nrrec           Number of restart records to read from disk.
+          T  LcycleRST       Switch to recycle time-records in restart file.
+       8766  nRST            Number of timesteps between the writing of data
+                               into restart fields.
+          1  ninfo           Number of timesteps between print of information
+                               to standard output.
+          T  ldefout         Switch to create a new output NetCDF file(s).
+        288  nHIS            Number of timesteps between the writing fields
+                               into history file.
+     105192  ndefHIS         Number of timesteps between creation of new
+                               history files.
+ 1.0000E+02  nl_tnu2(01)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 01: temp
+ 1.0000E+02  nl_tnu2(02)     NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for tracer 02: salt
+ 6.0000E+02  nl_visc2        NLM Horizontal, harmonic mixing coefficient
+                               (m2/s) for momentum.
+ 5.0000E-05  Akt_bak(01)     Background vertical mixing coefficient (m2/s)
+                               for tracer 01: temp
+ 5.0000E-05  Akt_bak(02)     Background vertical mixing coefficient (m2/s)
+                               for tracer 02: salt
+ 1.0000E-03  Akv_bak         Background vertical mixing coefficient (m2/s)
+                               for momentum.
+ 3.0000E-04  rdrg            Linear bottom drag coefficient (m/s).
+ 3.0000E-03  rdrg2           Quadratic bottom drag coefficient.
+ 2.0000E-02  Zob             Bottom roughness (m).
+          1  lmd_Jwt         Jerlov water type.
+          1  Vtransform      S-coordinate transformation equation.
+          1  Vstretching     S-coordinate stretching function.
+ 4.0000E+00  theta_s         S-coordinate surface control parameter.
+ 9.0000E-01  theta_b         S-coordinate bottom  control parameter.
+     20.000  Tcline          S-coordinate surface/bottom layer width (m) used
+                               in vertical coordinate stretching.
+   1027.000  rho0            Mean density (kg/m3) for Boussinesq approximation.
+      0.000  dstart          Time-stamp assigned to model initialization (days).
+       0.00  time_ref        Reference time for units attribute (yyyymmdd.dd)
+ 0.0000E+00  Tnudg(01)       Nudging/relaxation time scale (days)
+                               for tracer 01: temp
+ 0.0000E+00  Tnudg(02)       Nudging/relaxation time scale (days)
+                               for tracer 02: salt
+ 0.0000E+00  Znudg           Nudging/relaxation time scale (days)
+                               for free-surface.
+ 0.0000E+00  M2nudg          Nudging/relaxation time scale (days)
+                               for 2D momentum.
+ 0.0000E+00  M3nudg          Nudging/relaxation time scale (days)
+                               for 3D momentum.
+ 0.0000E+00  obcfac          Factor between passive and active
+                               open boundary conditions.
+          F  VolCons(1)      NLM western  edge boundary volume conservation.
+          F  VolCons(2)      NLM southern edge boundary volume conservation.
+          F  VolCons(3)      NLM eastern  edge boundary volume conservation.
+          F  VolCons(4)      NLM northern edge boundary volume conservation.
+     -0.278  T0              Background potential temperature (C) constant.
+     34.649  S0              Background salinity (PSU) constant.
+      1.000  gamma2          Slipperiness variable: free-slip (1.0) or 
+                                                    no-slip (-1.0).
+          T  Hout(idFsur)    Write out free-surface.
+          T  Hout(idUbar)    Write out 2D U-momentum component.
+          T  Hout(idVbar)    Write out 2D V-momentum component.
+          T  Hout(idUvel)    Write out 3D U-momentum component.
+          T  Hout(idVvel)    Write out 3D V-momentum component.
+          T  Hout(idWvel)    Write out W-momentum component.
+          T  Hout(idOvel)    Write out omega vertical velocity.
+          T  Hout(idTvar)    Write out tracer 01: temp
+          T  Hout(idTvar)    Write out tracer 02: salt
+          T  Hout(idUsms)    Write out surface U-momentum stress.
+          T  Hout(idVsms)    Write out surface V-momentum stress.
+          T  Hout(idUbms)    Write out bottom U-momentum stress.
+          T  Hout(idVbms)    Write out bottom V-momentum stress.
+          T  Hout(idTsur)    Write out surface net heat flux.
+          T  Hout(idTsur)    Write out surface net salt flux.
+          T  Hout(idDano)    Write out density anomaly.
+          T  Hout(idVvis)    Write out vertical viscosity: AKv.
+          T  Hout(idTdif)    Write out vertical diffusion: AKt(itemp).
+          T  Hout(idSdif)    Write out vertical diffusion: AKt(isalt).
+          T  Hout(idHsbl)    Write out depth of surface boundary layer.
+
+ Output/Input Files:
+
+             Output Restart File:  ocean_rst2.nc
+        Prefix for History Files:  ocean_his
+
+ Tile partition information for Grid 01:  0051x0101x0024  tiling: 004x008
+
+     tile     Istr     Iend     Jstr     Jend     Npts
+
+        0        1       13        1       12     3744
+        1       14       26        1       12     3744
+        2       27       39        1       12     3744
+        3       40       51        1       12     3456
+        4        1       13       13       25     4056
+        5       14       26       13       25     4056
+        6       27       39       13       25     4056
+        7       40       51       13       25     3744
+        8        1       13       26       38     4056
+        9       14       26       26       38     4056
+       10       27       39       26       38     4056
+       11       40       51       26       38     3744
+       12        1       13       39       51     4056
+       13       14       26       39       51     4056
+       14       27       39       39       51     4056
+       15       40       51       39       51     3744
+       16        1       13       52       64     4056
+       17       14       26       52       64     4056
+       18       27       39       52       64     4056
+       19       40       51       52       64     3744
+       20        1       13       65       77     4056
+       21       14       26       65       77     4056
+       22       27       39       65       77     4056
+       23       40       51       65       77     3744
+       24        1       13       78       90     4056
+       25       14       26       78       90     4056
+       26       27       39       78       90     4056
+       27       40       51       78       90     3744
+       28        1       13       91      101     3432
+       29       14       26       91      101     3432
+       30       27       39       91      101     3432
+       31       40       51       91      101     3168
+
+ Tile minimum and maximum fractional coordinates for Grid 01:
+ Node #  8 (pid=    5627) is active.
+ Node #  9 (pid=    5628) is active.
+ Node # 10 (pid=    5629) is active.
+ Node # 16 (pid=    8103) is active.
+ Node # 11 (pid=    5630) is active.
+ Node # 17 (pid=    8104) is active.
+ Node # 24 (pid=   13207) is active.
+ Node # 12 (pid=    5631) is active.
+ Node # 18 (pid=    8105) is active.
+ Node # 25 (pid=   13208) is active.
+ Node # 13 (pid=    5632) is active.
+ Node # 19 (pid=    8106) is active.
+ Node # 26 (pid=   13209) is active.
+ Node # 14 (pid=    5633) is active.
+ Node # 20 (pid=    8107) is active.
+ Node # 27 (pid=   13210) is active.
+   (interior points only)
+
+     tile     Xmin     Xmax     Ymin     Ymax     grid
+
+        0     0.50    13.50     0.50    12.50  RHO-points
+        1    13.50    26.50     0.50    12.50  RHO-points
+        2    26.50    39.50     0.50    12.50  RHO-points
+        3    39.50    51.50     0.50    12.50  RHO-points
+        4     0.50    13.50    12.50    25.50  RHO-points
+        5    13.50    26.50    12.50    25.50  RHO-points
+        6    26.50    39.50    12.50    25.50  RHO-points
+        7    39.50    51.50    12.50    25.50  RHO-points
+        8     0.50    13.50    25.50    38.50  RHO-points
+        9    13.50    26.50    25.50    38.50  RHO-points
+       10    26.50    39.50    25.50    38.50  RHO-points
+       11    39.50    51.50    25.50    38.50  RHO-points
+       12     0.50    13.50    38.50    51.50  RHO-points
+       13    13.50    26.50    38.50    51.50  RHO-points
+       14    26.50    39.50    38.50    51.50  RHO-points
+       15    39.50    51.50    38.50    51.50  RHO-points
+       16     0.50    13.50    51.50    64.50  RHO-points
+       17    13.50    26.50    51.50    64.50  RHO-points
+       18    26.50    39.50    51.50    64.50  RHO-points
+       19    39.50    51.50    51.50    64.50  RHO-points
+       20     0.50    13.50    64.50    77.50  RHO-points
+       21    13.50    26.50    64.50    77.50  RHO-points
+       22    26.50    39.50    64.50    77.50  RHO-points
+       23    39.50    51.50    64.50    77.50  RHO-points
+       24     0.50    13.50    77.50    90.50  RHO-points
+       25    13.50    26.50    77.50    90.50  RHO-points
+       26    26.50    39.50    77.50    90.50  RHO-points
+       27    39.50    51.50    77.50    90.50  RHO-points
+       28     0.50    13.50    90.50   101.50  RHO-points
+       29    13.50    26.50    90.50   101.50  RHO-points
+       30    26.50    39.50    90.50   101.50  RHO-points
+       31    39.50    51.50    90.50   101.50  RHO-points
+
+        0     1.00    13.50     0.50    12.50    U-points
+        1    13.50    26.50     0.50    12.50    U-points
+        2    26.50    39.50     0.50    12.50    U-points
+        3    39.50    51.00     0.50    12.50    U-points
+        4     1.00    13.50    12.50    25.50    U-points
+        5    13.50    26.50    12.50    25.50    U-points
+        6    26.50    39.50    12.50    25.50    U-points
+        7    39.50    51.00    12.50    25.50    U-points
+        8     1.00    13.50    25.50    38.50    U-points
+        9    13.50    26.50    25.50    38.50    U-points
+       10    26.50    39.50    25.50    38.50    U-points
+       11    39.50    51.00    25.50    38.50    U-points
+       12     1.00    13.50    38.50    51.50    U-points
+       13    13.50    26.50    38.50    51.50    U-points
+       14    26.50    39.50    38.50    51.50    U-points
+       15    39.50    51.00    38.50    51.50    U-points
+       16     1.00    13.50    51.50    64.50    U-points
+       17    13.50    26.50    51.50    64.50    U-points
+       18    26.50    39.50    51.50    64.50    U-points
+       19    39.50    51.00    51.50    64.50    U-points
+       20     1.00    13.50    64.50    77.50    U-points
+       21    13.50    26.50    64.50    77.50    U-points
+       22    26.50    39.50    64.50    77.50    U-points
+       23    39.50    51.00    64.50    77.50    U-points
+       24     1.00    13.50    77.50    90.50    U-points
+       25    13.50    26.50    77.50    90.50    U-points
+       26    26.50    39.50    77.50    90.50    U-points
+       27    39.50    51.00    77.50    90.50    U-points
+       28     1.00    13.50    90.50   101.50    U-points
+       29    13.50    26.50    90.50   101.50    U-points
+       30    26.50    39.50    90.50   101.50    U-points
+       31    39.50    51.00    90.50   101.50    U-points
+
+        0     0.50    13.50     1.00    12.50    V-points
+        1    13.50    26.50     1.00    12.50    V-points
+        2    26.50    39.50     1.00    12.50    V-points
+        3    39.50    51.50     1.00    12.50    V-points
+        4     0.50    13.50    12.50    25.50    V-points
+        5    13.50    26.50    12.50    25.50    V-points
+        6    26.50    39.50    12.50    25.50    V-points
+        7    39.50    51.50    12.50    25.50    V-points
+        8     0.50    13.50    25.50    38.50    V-points
+        9    13.50    26.50    25.50    38.50    V-points
+       10    26.50    39.50    25.50    38.50    V-points
+       11    39.50    51.50    25.50    38.50    V-points
+       12     0.50    13.50    38.50    51.50    V-points
+       13    13.50    26.50    38.50    51.50    V-points
+       14    26.50    39.50    38.50    51.50    V-points
+       15    39.50    51.50    38.50    51.50    V-points
+       16     0.50    13.50    51.50    64.50    V-points
+       17    13.50    26.50    51.50    64.50    V-points
+       18    26.50    39.50    51.50    64.50    V-points
+       19    39.50    51.50    51.50    64.50    V-points
+       20     0.50    13.50    64.50    77.50    V-points
+       21    13.50    26.50    64.50    77.50    V-points
+       22    26.50    39.50    64.50    77.50    V-points
+       23    39.50    51.50    64.50    77.50    V-points
+       24     0.50    13.50    77.50    90.50    V-points
+       25    13.50    26.50    77.50    90.50    V-points
+       26    26.50    39.50    77.50    90.50    V-points
+       27    39.50    51.50    77.50    90.50    V-points
+       28     0.50    13.50    90.50   101.00    V-points
+       29    13.50    26.50    90.50   101.00    V-points
+       30    26.50    39.50    90.50   101.00    V-points
+       31    39.50    51.50    90.50   101.00    V-points
+
+ Maximum halo size in XI and ETA directions:
+
+               HaloSizeI(1) =      50
+               HaloSizeJ(1) =      50
+                TileSide(1) =      19
+                TileSize(1) =     361
+
+
+ Lateral Boundary Conditions: NLM
+ ============================
+
+ Variable               Grid  West Edge    South Edge   East Edge    North Edge
+ ---------              ----  ----------   ----------   ----------   ----------
+
+ zeta                     1   Closed       Closed       Closed       Closed
+
+ ubar                     1   Closed       Closed       Closed       Closed
+
+ vbar                     1   Closed       Closed       Closed       Closed
+
+ u                        1   Closed       Closed       Closed       Closed
+
+ v                        1   Closed       Closed       Closed       Closed
+
+ temp                     1   Closed       Closed       Closed       Closed
+
+ salt                     1   Closed       Closed       Closed       Closed
+
+ Activated C-preprocessing Options:
+
+ ICETEST             Idealised Ice Shelf Application
+ ANA_BSFLUX          Analytical kinematic bottom salinity flux.
+ ANA_BTFLUX          Analytical kinematic bottom temperature flux.
+ ANA_ICEDRAG_GRID    Analytical spatially varying quadratic ice-ocean drag coeff.
+ ANA_GRID            Analytical grid set-up.
+ ANA_INITIAL         Analytical initial conditions.
+ ANA_SMFLUX          Analytical kinematic surface momentum flux.
+ ANA_SRFLUX          Analytical kinematic shortwave radiation flux.
+ ANA_SSFLUX          Analytical kinematic surface salinity flux.
+ ANA_STFLUX          Analytical kinematic surface temperature flux.
+ ASSUMED_SHAPE       Using assumed-shape arrays.
+ CURVGRID            Orthogonal curvilinear grid.
+ DJ_GRADPS           Parabolic Splines density Jacobian (Shchepetkin, 2002).
+ DOUBLE_PRECISION    Double precision arithmetic.
+ ICESHELF            Include Ice Shelf Cavities.
+ LMD_CONVEC          LMD convective mixing due to shear instability.
+ LMD_DDMIX           LMD double-diffusive mixing.
+ LMD_MIXING          Large/McWilliams/Doney interior mixing.
+ LMD_RIMIX           LMD diffusivity due to shear instability.
+ LMD_SKPP            KPP surface boundary layer mixing.
+ MIX_GEO_TS          Mixing of tracers along geopotential surfaces.
+ MIX_GEO_UV          Mixing of momentum along geopotential surfaces.
+ MPI                 MPI distributed-memory configuration.
+ NONLINEAR           Nonlinear Model.
+ NONLIN_EOS          Nonlinear Equation of State for seawater.
+ PERFECT_RESTART     Processing perfect restart variables.
+ POWER_LAW           Power-law shape time-averaging barotropic filter.
+ PROFILE             Time profiling activated .
+ !RST_SINGLE         Double precision fields in restart NetCDF file.
+ SALINITY            Using salinity.
+ SOLVE3D             Solving 3D Primitive Equations.
+ SPLINES             Conservative parabolic spline reconstruction.
+ SPHERICAL           Spherical grid configuration.
+ TS_C4HADVECTION     Fourth-order centered horizontal advection of tracers.
+ TS_C4VADVECTION     Fourth-order centered vertical advection of tracers.
+ TS_DIF2             Harmonic mixing of tracers.
+ UV_ADV              Advection of momentum.
+ UV_COR              Coriolis term.
+ UV_U3HADVECTION     Third-order upstream horizontal advection of 3D momentum.
+ UV_C4VADVECTION     Fourth-order centered vertical advection of momentum.
+ UV_ICEDRAG_GRID     Spatially varying quadratic drag coefficient.
+ UV_QDRAG            Quadratic bottom stress.
+ UV_VIS2             Harmonic mixing of momentum.
+ VAR_RHO_2D          Variable density barotropic mode.
+
+ Process Information:
+
+ Node #  0 (pid=    7851) is active.
+ Node # 15 (pid=    5634) is active.
+ Node # 21 (pid=    8108) is active.
+ Node # 28 (pid=   13211) is active.
+ Node #  1 (pid=    7852) is active.
+ Node # 22 (pid=    8109) is active.
+ Node # 29 (pid=   13212) is active.
+ Node #  2 (pid=    7853) is active.
+ Node # 23 (pid=    8110) is active.
+ Node # 30 (pid=   13213) is active.
+ Node #  3 (pid=    7854) is active.
+ Node # 31 (pid=   13214) is active.
+ Node #  4 (pid=    7855) is active.
+ Node #  5 (pid=    7856) is active.
+ Node #  6 (pid=    7857) is active.
+ Node #  7 (pid=    7858) is active.
+
+ INITIAL: Configuring and initializing forward nonlinear model ...
+ *******
+
+ Vertical S-coordinate System, Grid 01:
+
+ level   S-coord     Cs-curve   Z   at hmin       at hc    half way     at hmax
+
+    24   0.0000000   0.0000000        0.000       0.000       0.000       0.000
+    23  -0.0416667  -0.0070910       -7.073      -0.833      -7.073      -7.073
+    22  -0.0833333  -0.0166100      -16.283      -1.667     -16.283     -16.283
+    21  -0.1250000  -0.0293939      -28.367      -2.500     -28.367     -28.367
+    20  -0.1666667  -0.0464904      -44.245      -3.333     -44.245     -44.245
+    19  -0.2083333  -0.0691564      -65.024      -4.167     -65.024     -65.024
+    18  -0.2500000  -0.0988006      -91.945      -5.000     -91.945     -91.945
+    17  -0.2916667  -0.1368390     -126.252      -5.833    -126.252    -126.252
+    16  -0.3333333  -0.1844295     -168.965      -6.667    -168.965    -168.965
+    15  -0.3750000  -0.2420900     -220.539      -7.500    -220.539    -220.539
+    14  -0.4166667  -0.3092749     -280.495      -8.333    -280.495    -280.495
+    13  -0.4583333  -0.3840806     -347.158      -9.167    -347.158    -347.158
+    12  -0.5000000  -0.4632901     -417.695     -10.000    -417.695    -417.695
+    11  -0.5416667  -0.5428696     -488.559     -10.833    -488.559    -488.559
+    10  -0.5833333  -0.6187957     -556.207     -11.667    -556.207    -556.207
+     9  -0.6250000  -0.6878825     -617.837     -12.500    -617.837    -617.837
+     8  -0.6666667  -0.7482795     -671.819     -13.333    -671.819    -671.819
+     7  -0.7083333  -0.7995171     -717.742     -14.167    -717.742    -717.742
+     6  -0.7500000  -0.8422148     -756.149     -15.000    -756.149    -756.149
+     5  -0.7916667  -0.8776604     -788.174     -15.833    -788.174    -788.174
+     4  -0.8333333  -0.9074311     -815.206     -16.667    -815.206    -815.206
+     3  -0.8750000  -0.9331337     -838.658     -17.500    -838.658    -838.658
+     2  -0.9166667  -0.9562645     -859.846     -18.333    -859.846    -859.846
+     1  -0.9583333  -0.9781595     -879.947     -19.167    -879.947    -879.947
+     0  -1.0000000  -1.0000000     -900.000     -20.000    -900.000    -900.000
+
+ Time Splitting Weights for Grid 01:    ndtfast =  30    nfast =  42
+ ==================================
+
+    Primary            Secondary            Accumulated to Current Step
+
+  1-0.0008094437383769 0.0333333333333333-0.0008094437383769 0.0333333333333333
+  2-0.0014053566728197 0.0333603147912792-0.0022148004111966 0.0666936481246126
+  3-0.0017877524645903 0.0334071600137066-0.0040025528757869 0.1001008081383191
+  4-0.0019566842408176 0.0334667517625262-0.0059592371166045 0.1335675599008453
+  5-0.0019122901320372 0.0335319745705535-0.0078715272486418 0.1670995344713988
+  6-0.0016548570247459 0.0335957175749547-0.0095263842733877 0.2006952520463536
+  7-0.0011849025289723 0.0336508794757796-0.0107112868023600 0.2343461315221332
+  8-0.0005032751608632 0.0336903762267453-0.0112145619632232 0.2680365077488785
+  9 0.0003887272597151 0.0337071520654408-0.0108258347035081 0.3017436598143193
+ 10 0.0014892209965583 0.0336941944901169-0.0093366137069498 0.3354378543044362
+ 11 0.0027955815694920 0.0336445537902317-0.0065410321374578 0.3690824080946679
+ 12 0.0043042707117221 0.0335513677379153-0.0022367614257357 0.4026337758325832
+ 13 0.0060106451121704 0.0334078920475245 0.0037738836864347 0.4360416678801077
+ 14 0.0079087469427945 0.0332075372104522 0.0116826306292292 0.4692492050905599
+ 15 0.0099910761708919 0.0329439123123590 0.0216737068001212 0.5021931174029189
+ 16 0.0122483446563884 0.0326108764399960 0.0339220514565096 0.5348039938429149
+ 17 0.0146692120341107 0.0322025982847830 0.0485912634906203 0.5670065921276979
+ 18 0.0172400033810439 0.0317136245503127 0.0658312668716641 0.5987202166780106
+ 19 0.0199444086685725 0.0311389577709445 0.0857756755402366 0.6298591744489551
+ 20 0.0227631639997064 0.0304741441486588 0.1085388395399430 0.6603333185976139
+ 21 0.0256737146312910 0.0297153720153352 0.1342125541712340 0.6900486906129492
+ 22 0.0286498597812016 0.0288595815276255 0.1628624139524356 0.7189082721405747
+ 23 0.0316613792205220 0.0279045862015855 0.1945237931729576 0.7468128583421603
+ 24 0.0346736416507075 0.0268492068942348 0.2291974348236650 0.7736620652363950
+ 25 0.0376471948657328 0.0256934188392112 0.2668446296893978 0.7993554840756062
+ 26 0.0405373376992232 0.0244385123436867 0.3073819673886211 0.8237939964192930
+ 27 0.0432936737565710 0.0230872677537126 0.3506756411451921 0.8468812641730056
+ 28 0.0458596469320356 0.0216441452951603 0.3965352880772277 0.8685254094681658
+ 29 0.0481720587108284 0.0201154903974257 0.4447073467880561 0.8886408998655916
+ 30 0.0501605672561820 0.0185097551070648 0.4948679140442381 0.9071506549726563
+ 31 0.0517471682814030 0.0168377361985254 0.5466150823256412 0.9239883911711817
+ 32 0.0528456577069106 0.0151128305891453 0.5994607400325518 0.9391012217603270
+ 33 0.0533610761022577 0.0133513086655816 0.6528218161348095 0.9524525304259086
+ 34 0.0531891349131379 0.0115726061288397 0.7060109510479474 0.9640251365547483
+ 35 0.0522156244733761 0.0097996349650684 0.7582265755213236 0.9738247715198167
+ 36 0.0503158038019030 0.0080591141492892 0.8085423793232266 0.9818838856691059
+ 37 0.0473537721847153 0.0063819206892258 0.8558961515079420 0.9882658063583317
+ 38 0.0431818225418188 0.0048034616164019 0.8990779740497608 0.9930692679747336
+ 39 0.0376397765791564 0.0033640675316746 0.9367177506289172 0.9964333355064082
+ 40 0.0305543017255206 0.0021094083123694 0.9672720523544378 0.9985427438187776
+ 41 0.0217382098544505 0.0010909315881854 0.9890102622088882 0.9996336754069630
+ 42 0.0109897377911118 0.0003663245930371 1.0000000000000000 1.0000000000000000
+
+ ndtfast, nfast =   30  42   nfast/ndtfast =  1.40000
+
+ Centers of gravity and integrals (values must be 1, 1, approx 1/2, 1, 1):
+
+    1.000000000000 1.047601458608 0.523800729304 1.000000000000 1.000000000000
+
+ Power filter parameters, Fgamma, gamma =  0.28400   0.18933
+
+ Metrics information for Grid 01:
+ ===============================
+
+ Minimum X-grid spacing, DXmin =  5.73531111E+00 km
+ Maximum X-grid spacing, DXmax =  1.14640003E+01 km
+ Minimum Y-grid spacing, DYmin =  1.11195276E+01 km
+ Maximum Y-grid spacing, DYmax =  1.11195276E+01 km
+ Minimum Z-grid spacing, DZmin =  2.10970621E+00 m
+ Maximum Z-grid spacing, DZmax =  7.08632913E+01 m
+
+ Minimum barotropic Courant Number =  1.17722787E-01
+ Maximum barotropic Courant Number =  1.84340982E-01
+ Maximum Coriolis   Courant Number =  4.31011833E-02
+
+
+ NLM: GET_STATE - Read state initial conditions,             t = 10957 12:00:00
+                   (Grid 01, File: ocean_rst.nc, Rec=0002, Index=1)
+                - free-surface
+                   (Min = -1.15209642E-02 Max =  6.77453622E-02)
+                - RHS of free-surface equation
+                   (Min = -4.27386814E-03 Max =  3.99317613E-03)
+                - vertically integrated u-momentum component
+                   (Min = -1.82330566E-02 Max =  1.26569798E-02)
+                - RHS of vertically integrated u-momentum
+                   (Min = -1.69436221E-01 Max =  2.09998552E-01)
+                - vertically integrated v-momentum component
+                   (Min = -2.03985594E-02 Max =  6.06297903E-02)
+                - RHS of vertically integrated v-momentum
+                   (Min = -1.74147614E-01 Max =  1.61939049E-01)
+                - u-momentum component
+                   (Min = -2.64406409E-02 Max =  2.28850584E-02)
+                - RHS of total u-momentum
+                   (Min = -2.42988480E+05 Max =  1.05198280E+04)
+                - v-momentum component
+                   (Min = -3.18205291E-02 Max =  9.12994826E-02)
+                - RHS of total v-momentum
+                   (Min = -2.14066191E+05 Max =  1.69005392E+05)
+                - potential temperature
+                   (Min = -2.39097259E+00 Max = -1.90000002E+00)
+                - salinity
+                   (Min =  3.43173770E+01 Max =  3.45000000E+01)
+                - vertical viscosity coefficient
+                   (Min =  0.00000000E+00 Max =  9.40740390E-01)
+                - temperature vertical diffusion coefficient
+                   (Min =  0.00000000E+00 Max =  2.13158206E+00)
+                - salinity vertical diffusion coefficient
+                   (Min =  0.00000000E+00 Max =  2.13158163E+00)
+                - depth of oceanic surface boundary layer
+                   (Min = -8.79947311E+02 Max = -2.00007526E+02)
+
+ Basin information for Grid 01:
+
+ Maximum grid stiffness ratios:  rx0 =   0.000000E+00 (Beckmann and Haidvogel)
+                                 rx1 =   3.131396E+01 (Haney)
+
+ Initial basin volumes: TotVolume =  3.7425518734E+14 m3
+                        MinVolume =  1.3588957408E+08 m3
+                        MaxVolume =  8.9901498541E+09 m3
+                          Max/Min =  6.6157760188E+01
+
+ NL ROMS/TOMS: started time-stepping: (Grid: 01 TimeSteps: 03155761 - 03260952)
+
+
+   STEP   Day HH:MM:SS  KINETIC_ENRG   POTEN_ENRG    TOTAL_ENRG    NET_VOLUME
+          C => (i,j,k)       Cu            Cv            Cw         Max Speed
+
+3155760 10957 12:00:00  6.703222E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,18)  3.913784E-04  2.095696E-03  0.000000E+00  7.953413E-02
+  -2.12635626566287       -2.11974958920233       -337.500000000000     
+  -2.12466109914065        1.00000000000000     
+ -0.162937491178885       2.463763102033404E-009  -2.12455988059349     
+   34.4144278844667      -2.296919192331504E-007
+ -8.479291684035001E-008  4.774789797559299E-005  4.774789797559299E-005
+   34.4162036484521        34.4162036484521     
+3155761 10957 12:05:00  6.703222E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516189E-02  7.953413E-02
+  -2.12635626566903       -2.11974958921465       -337.500000000000     
+  -2.12466109914958        1.00000000000000     
+ -0.162937491178885       2.463763090352941E-009  -2.12455988060248     
+   34.4144278846244      -2.296919181441896E-007
+ -8.479291643837255E-008  4.774789778228882E-005  4.774789778228882E-005
+   34.4162036486086        34.4162036486086     
+3155762 10957 12:10:00  6.703222E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516188E-02  7.953412E-02
+  -2.12635626567514       -2.11974958922686       -337.500000000000     
+  -2.12466109915848        1.00000000000000     
+ -0.162937491178885       2.463763103262684E-009  -2.12455988061145     
+   34.4144278847819      -2.296919193477120E-007
+ -8.479291688443558E-008  4.774789806461571E-005  4.774789806461571E-005
+   34.4162036487649        34.4162036487649     
+3155763 10957 12:15:00  6.703222E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516188E-02  7.953412E-02
+  -2.12635626568136       -2.11974958923930       -337.500000000000     
+  -2.12466109916739        1.00000000000000     
+ -0.162937491178885       2.463763125619929E-009  -2.12455988062043     
+   34.4144278849394      -2.296919214320103E-007
+ -8.479291765409163E-008  4.774789853221866E-005  4.774789853221866E-005
+   34.4162036489212        34.4162036489212     
+3155764 10957 12:20:00  6.703221E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516188E-02  7.953412E-02
+  -2.12635626568775       -2.11974958925208       -337.500000000000     
+  -2.12466109917630        1.00000000000000     
+ -0.162937491178885       2.463763124266340E-009  -2.12455988062943     
+   34.4144278850973      -2.296919213057818E-007
+ -8.479291759946797E-008  4.774789854349334E-005  4.774789854349334E-005
+   34.4162036490775        34.4162036490775     
+3155765 10957 12:25:00  6.703221E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516188E-02  7.953412E-02
+  -2.12635626569415       -2.11974958926489       -337.500000000000     
+  -2.12466109918520        1.00000000000000     
+ -0.162937491178885       2.463763095214813E-009  -2.12455988063841     
+   34.4144278852549      -2.296919185973661E-007
+ -8.479291660199818E-008  4.774789801849066E-005  4.774789801849066E-005
+   34.4162036492337        34.4162036492337     
+3155766 10957 12:30:00  6.703221E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516188E-02  7.953412E-02
+  -2.12635626570041       -2.11974958927741       -337.500000000000     
+  -2.12466109919410        1.00000000000000     
+ -0.162937491178885       2.463763098948694E-009  -2.12455988064739     
+   34.4144278854123      -2.296919189454432E-007
+ -8.479291672740234E-008  4.774789812598253E-005  4.774789812598253E-005
+   34.4162036493898        34.4162036493898     
+3155767 10957 12:35:00  6.703221E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516188E-02  7.953412E-02
+  -2.12635626570677       -2.11974958929012       -337.500000000000     
+  -2.12466109920303        1.00000000000000     
+ -0.162937491178885       2.463763100877789E-009  -2.12455988065639     
+   34.4144278855702      -2.296919191252760E-007
+ -8.479291680233442E-008  4.774789820027668E-005  4.774789820027668E-005
+   34.4162036495465        34.4162036495465     
+3155768 10957 12:40:00  6.703221E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516188E-02  7.953412E-02
+  -2.12635626571315       -2.11974958930289       -337.500000000000     
+  -2.12466109921194        1.00000000000000     
+ -0.162937491178885       2.463763094514998E-009  -2.12455988066537     
+   34.4144278857278      -2.296919185320557E-007
+ -8.479291658625178E-008  4.774789811451812E-005  4.774789811451812E-005
+   34.4162036497027        34.4162036497027     
+3155769 10957 12:45:00  6.703221E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516188E-02  7.953412E-02
+  -2.12635626571951       -2.11974958931560       -337.500000000000     
+  -2.12466109922082        1.00000000000000     
+ -0.162937491178885       2.463763069224976E-009  -2.12455988067434     
+   34.4144278858851      -2.296919161742805E-007
+ -8.479291571096117E-008  4.774789766156388E-005  4.774789766156388E-005
+   34.4162036498585        34.4162036498585     
+3155770 10957 12:50:00  6.703221E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516188E-02  7.953412E-02
+  -2.12635626572580       -2.11974958932818       -337.500000000000     
+  -2.12466109922975        1.00000000000000     
+ -0.162937491178885       2.463763059957033E-009  -2.12455988068333     
+   34.4144278860429      -2.296919153102494E-007
+ -8.479291539675729E-008  4.774789751749511E-005  4.774789751749511E-005
+   34.4162036500151        34.4162036500151     
+3155771 10957 12:55:00  6.703221E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516188E-02  7.953412E-02
+  -2.12635626573206       -2.11974958934071       -337.500000000000     
+  -2.12466109923867        1.00000000000000     
+ -0.162937491178885       2.463763062199203E-009  -2.12455988069233     
+   34.4144278862009      -2.296919155192710E-007
+ -8.479291547230509E-008  4.774789759595699E-005  4.774789759595699E-005
+   34.4162036501717        34.4162036501717     
+3155772 10957 13:00:00  6.703221E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516188E-02  7.953412E-02
+  -2.12635626573832       -2.11974958935322       -337.500000000000     
+  -2.12466109924756        1.00000000000000     
+ -0.162937491178885       2.463763057360351E-009  -2.12455988070130     
+   34.4144278863581      -2.296919150681371E-007
+ -8.479291530256862E-008  4.774789753744274E-005  4.774789753744274E-005
+   34.4162036503276        34.4162036503276     
+3155773 10957 13:05:00  6.703221E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516188E-02  7.953411E-02
+  -2.12635626574460       -2.11974958936578       -337.500000000000     
+  -2.12466109925646        1.00000000000000     
+ -0.162937491178885       2.463763046494804E-009  -2.12455988071027     
+   34.4144278865156      -2.296919140551395E-007
+ -8.479291493168376E-008  4.774789736241151E-005  4.774789736241151E-005
+   34.4162036504838        34.4162036504838     
+3155774 10957 13:10:00  6.703221E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516188E-02  7.953411E-02
+  -2.12635626575085       -2.11974958937829       -337.500000000000     
+  -2.12466109926538        1.00000000000000     
+ -0.162937491178885       2.463763041361294E-009  -2.12455988071926     
+   34.4144278866733      -2.296919135765147E-007
+ -8.479291475665586E-008  4.774789729786069E-005  4.774789729786069E-005
+   34.4162036506403        34.4162036506403     
+3155775 10957 13:15:00  6.703221E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516188E-02  7.953411E-02
+  -2.12635626575709       -2.11974958939078       -337.500000000000     
+  -2.12466109927429        1.00000000000000     
+ -0.162937491178885       2.463763038069401E-009  -2.12455988072825     
+   34.4144278868309      -2.296919132696185E-007
+ -8.479291464299799E-008  4.774789726882333E-005  4.774789726882333E-005
+   34.4162036507966        34.4162036507966     
+3155776 10957 13:20:00  6.703221E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516188E-02  7.953411E-02
+  -2.12635626576336       -2.11974958940330       -337.500000000000     
+  -2.12466109928321        1.00000000000000     
+ -0.162937491178885       2.463763049151338E-009  -2.12455988073724     
+   34.4144278869887      -2.296919143027642E-007
+ -8.479291502350444E-008  4.774789751862895E-005  4.774789751862895E-005
+   34.4162036509530        34.4162036509530     
+3155777 10957 13:25:00  6.703220E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516188E-02  7.953411E-02
+  -2.12635626576970       -2.11974958941599       -337.500000000000     
+  -2.12466109929211        1.00000000000000     
+ -0.162937491178885       2.463763045122799E-009  -2.12455988074622     
+   34.4144278871463      -2.296919139271479E-007
+ -8.479291488037704E-008  4.774789747739132E-005  4.774789747739132E-005
+   34.4162036511092        34.4162036511092     
+3155778 10957 13:30:00  6.703220E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516188E-02  7.953411E-02
+  -2.12635626577609       -2.11974958942876       -337.500000000000     
+  -2.12466109930103        1.00000000000000     
+ -0.162937491178885       2.463763021177158E-009  -2.12455988075522     
+   34.4144278873041      -2.296919116947266E-007
+ -8.479291406101588E-008  4.774789705077312E-005  4.774789705077312E-005
+   34.4162036512657        34.4162036512657     
+3155779 10957 13:35:00  6.703220E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516188E-02  7.953411E-02
+  -2.12635626578231       -2.11974958944122       -337.500000000000     
+  -2.12466109930990        1.00000000000000     
+ -0.162937491178885       2.463763004096149E-009  -2.12455988076417     
+   34.4144278874611      -2.296919101022899E-007
+ -8.479291347286698E-008  4.774789675454423E-005  4.774789675454423E-005
+   34.4162036514214        34.4162036514214     
+3155780 10957 13:40:00  6.703220E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516187E-02  7.953411E-02
+  -2.12635626578854       -2.11974958945366       -337.500000000000     
+  -2.12466109931884        1.00000000000000     
+ -0.162937491178885       2.463763006711247E-009  -2.12455988077317     
+   34.4144278876190      -2.296919103460656E-007
+ -8.479291356417576E-008  4.774789683939755E-005  4.774789683939755E-005
+   34.4162036515781        34.4162036515781     
+3155781 10957 13:45:00  6.703220E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516187E-02  7.953411E-02
+  -2.12635626579479       -2.11974958946617       -337.500000000000     
+  -2.12466109932775        1.00000000000000     
+ -0.162937491178885       2.463763007411063E-009  -2.12455988078216     
+   34.4144278877767      -2.296919104112799E-007
+ -8.479291359099945E-008  4.774789688793859E-005  4.774789688793859E-005
+   34.4162036517345        34.4162036517345     
+3155782 10957 13:50:00  6.703220E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516187E-02  7.953411E-02
+  -2.12635626580108       -2.11974958947876       -337.500000000000     
+  -2.12466109933667        1.00000000000000     
+ -0.162937491178885       2.463762992632076E-009  -2.12455988079116     
+   34.4144278879346      -2.296919090334422E-007
+ -8.479291307970961E-008  4.774789663709160E-005  4.774789663709160E-005
+   34.4162036518910        34.4162036518910     
+3155783 10957 13:55:00  6.703220E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516187E-02  7.953411E-02
+  -2.12635626580729       -2.11974958949117       -337.500000000000     
+  -2.12466109934557        1.00000000000000     
+ -0.162937491178885       2.463763008769256E-009  -2.12455988080013     
+   34.4144278880920      -2.296919105378595E-007
+ -8.479291363639597E-008  4.774789698400456E-005  4.774789698400456E-005
+   34.4162036520471        34.4162036520471     
+3155784 10957 14:00:00  6.703220E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516187E-02  7.953410E-02
+  -2.12635626581363       -2.11974958950385       -337.500000000000     
+  -2.12466109935447        1.00000000000000     
+ -0.162937491178885       2.463763024427614E-009  -2.12455988080911     
+   34.4144278882496      -2.296919119976576E-007
+ -8.479291417198256E-008  4.774789732419462E-005  4.774789732419462E-005
+   34.4162036522033        34.4162036522033     
+3155785 10957 14:05:00  6.703220E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516187E-02  7.953410E-02
+  -2.12635626582010       -2.11974958951680       -337.500000000000     
+  -2.12466109936338        1.00000000000000     
+ -0.162937491178885       2.463763016978269E-009  -2.12455988081809     
+   34.4144278884071      -2.296919113031440E-007
+ -8.479291392129852E-008  4.774789721914273E-005  4.774789721914273E-005
+   34.4162036523595        34.4162036523595     
+3155786 10957 14:10:00  6.703220E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516187E-02  7.953410E-02
+  -2.12635626582656       -2.11974958952971       -337.500000000000     
+  -2.12466109937228        1.00000000000000     
+ -0.162937491178885       2.463763005228745E-009  -2.12455988082709     
+   34.4144278885649      -2.296919102077263E-007
+ -8.479291351040806E-008  4.774789703037258E-005  4.774789703037258E-005
+   34.4162036525157        34.4162036525157     
+3155787 10957 14:15:00  6.703220E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516187E-02  7.953410E-02
+  -2.12635626583298       -2.11974958954255       -337.500000000000     
+  -2.12466109938118        1.00000000000000     
+ -0.162937491178885       2.463762990753626E-009  -2.12455988083606     
+   34.4144278887223      -2.296919088582112E-007
+ -8.479291301968088E-008  4.774789678823895E-005  4.774789678823895E-005
+   34.4162036526718        34.4162036526718     
+3155788 10957 14:20:00  6.703219E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516187E-02  7.953410E-02
+  -2.12635626583937       -2.11974958955533       -337.500000000000     
+  -2.12466109939009        1.00000000000000     
+ -0.162937491178885       2.463762970900982E-009  -2.12455988084505     
+   34.4144278888802      -2.296919070073931E-007
+ -8.479291233315102E-008  4.774789644100497E-005  4.774789644100497E-005
+   34.4162036528282        34.4162036528282     
+3155789 10957 14:25:00  6.703219E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516187E-02  7.953410E-02
+  -2.12635626584568       -2.11974958956794       -337.500000000000     
+  -2.12466109939901        1.00000000000000     
+ -0.162937491178885       2.463762969022531E-009  -2.12455988085405     
+   34.4144278890379      -2.296919068322497E-007
+ -8.479291226955030E-008  4.774789644053755E-005  4.774789644053755E-005
+   34.4162036529847        34.4162036529847     
+3155790 10957 14:30:00  6.703219E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516187E-02  7.953410E-02
+  -2.12635626585199       -2.11974958958056       -337.500000000000     
+  -2.12466109940791        1.00000000000000     
+ -0.162937491178885       2.463762946204882E-009  -2.12455988086302     
+   34.4144278891954      -2.296919047049891E-007
+ -8.479291148374907E-008  4.774789603453679E-005  4.774789603453679E-005
+   34.4162036531408        34.4162036531408     
+3155791 10957 14:35:00  6.703219E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516187E-02  7.953410E-02
+  -2.12635626585823       -2.11974958959304       -337.500000000000     
+  -2.12466109941683        1.00000000000000     
+ -0.162937491178885       2.463762931798824E-009  -2.12455988087201     
+   34.4144278893531      -2.296919033619088E-007
+ -8.479291099168740E-008  4.774789578993202E-005  4.774789578993202E-005
+   34.4162036532973        34.4162036532973     
+3155792 10957 14:40:00  6.703219E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516187E-02  7.953410E-02
+  -2.12635626586439       -2.11974958960537       -337.500000000000     
+  -2.12466109942573        1.00000000000000     
+ -0.162937491178885       2.463762949717769E-009  -2.12455988088098     
+   34.4144278895105      -2.296919050324450E-007
+ -8.479291160935389E-008  4.774789617061043E-005  4.774789617061043E-005
+   34.4162036534534        34.4162036534534     
+3155793 10957 14:45:00  6.703219E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516187E-02  7.953410E-02
+  -2.12635626587071       -2.11974958961800       -337.500000000000     
+  -2.12466109943463        1.00000000000000     
+ -0.162937491178885       2.463762980721411E-009  -2.12455988088996     
+   34.4144278896680      -2.296919079228280E-007
+ -8.479291267553122E-008  4.774789680767185E-005  4.774789680767185E-005
+   34.4162036536096        34.4162036536096     
+3155794 10957 14:50:00  6.703219E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516187E-02  7.953410E-02
+  -2.12635626587727       -2.11974958963113       -337.500000000000     
+  -2.12466109944356        1.00000000000000     
+ -0.162937491178885       2.463762973962672E-009  -2.12455988089898     
+   34.4144278898262      -2.296919072927162E-007
+ -8.479291244448190E-008  4.774789671749769E-005  4.774789671749769E-005
+   34.4162036537663        34.4162036537663     
+3155795 10957 14:55:00  6.703219E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516187E-02  7.953409E-02
+  -2.12635626588377       -2.11974958964413       -337.500000000000     
+  -2.12466109945245        1.00000000000000     
+ -0.162937491178885       2.463762930597168E-009  -2.12455988090796     
+   34.4144278899837      -2.296919032498221E-007
+ -8.479291094829003E-008  4.774789591700829E-005  4.774789591700829E-005
+   34.4162036539222        34.4162036539222     
+3155796 10957 15:00:00  6.703219E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516187E-02  7.953409E-02
+  -2.12635626589006       -2.11974958965671       -337.500000000000     
+  -2.12466109946137        1.00000000000000     
+ -0.162937491178885       2.463762920063112E-009  -2.12455988091694     
+   34.4144278901414      -2.296919022677116E-007
+ -8.479291058622624E-008  4.774789574847275E-005  4.774789574847275E-005
+   34.4162036540786        34.4162036540786     
+3155797 10957 15:05:00  6.703219E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516187E-02  7.953409E-02
+  -2.12635626589632       -2.11974958966922       -337.500000000000     
+  -2.12466109947028        1.00000000000000     
+ -0.162937491178885       2.463762922553901E-009  -2.12455988092592     
+   34.4144278902989      -2.296919024999015E-007
+ -8.479291067620423E-008  4.774789583181251E-005  4.774789583181251E-005
+   34.4162036542349        34.4162036542349     
+3155798 10957 15:10:00  6.703219E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516186E-02  7.953409E-02
+  -2.12635626590262       -2.11974958968183       -337.500000000000     
+  -2.12466109947919        1.00000000000000     
+ -0.162937491178885       2.463762901522621E-009  -2.12455988093491     
+   34.4144278904565      -2.296919005391818E-007
+ -8.479290995460794E-008  4.774789546024681E-005  4.774789546024681E-005
+   34.4162036543913        34.4162036543913     
+3155799 10957 15:15:00  6.703218E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516186E-02  7.953409E-02
+  -2.12635626590881       -2.11974958969421       -337.500000000000     
+  -2.12466109948807        1.00000000000000     
+ -0.162937491178885       2.463762872705901E-009  -2.12455988094387     
+   34.4144278906137      -2.296918978526340E-007
+ -8.479290896137050E-008  4.774789493571665E-005  4.774789493571665E-005
+   34.4162036545471        34.4162036545471     
+3155800 10957 15:20:00  6.703218E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516186E-02  7.953409E-02
+  -2.12635626591491       -2.11974958970641       -337.500000000000     
+  -2.12466109949700        1.00000000000000     
+ -0.162937491178885       2.463762869018060E-009  -2.12455988095287     
+   34.4144278907716      -2.296918975088178E-007
+ -8.479290883179021E-008  4.774789489599355E-005  4.774789489599355E-005
+   34.4162036547038        34.4162036547038     
+3155801 10957 15:25:00  6.703218E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516186E-02  7.953409E-02
+  -2.12635626592099       -2.11974958971857       -337.500000000000     
+  -2.12466109950591        1.00000000000000     
+ -0.162937491178885       2.463762878511602E-009  -2.12455988096183     
+   34.4144278909289      -2.296918983938434E-007
+ -8.479290916361276E-008  4.774789511169759E-005  4.774789511169759E-005
+   34.4162036548601        34.4162036548601     
+3155802 10957 15:30:00  6.703218E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516186E-02  7.953409E-02
+  -2.12635626592717       -2.11974958973094       -337.500000000000     
+  -2.12466109951482        1.00000000000000     
+ -0.162937491178885       2.463762888262970E-009  -2.12455988097082     
+   34.4144278910866      -2.296918993029581E-007
+ -8.479290949726509E-008  4.774789533416375E-005  4.774789533416375E-005
+   34.4162036550165        34.4162036550165     
+3155803 10957 15:35:00  6.703218E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516186E-02  7.953409E-02
+  -2.12635626593344       -2.11974958974348       -337.500000000000     
+  -2.12466109952374        1.00000000000000     
+ -0.162937491178885       2.463762895620235E-009  -2.12455988097982     
+   34.4144278912444      -2.296918999888147E-007
+ -8.479290974612399E-008  4.774789551193868E-005  4.774789551193868E-005
+   34.4162036551728        34.4162036551728     
+3155804 10957 15:40:00  6.703218E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516186E-02  7.953409E-02
+  -2.12635626593978       -2.11974958975615       -337.500000000000     
+  -2.12466109953264        1.00000000000000     
+ -0.162937491178885       2.463762915219656E-009  -2.12455988098880     
+   34.4144278914020      -2.296919018160269E-007
+ -8.479291041964949E-008  4.774789592846639E-005  4.774789592846639E-005
+   34.4162036553291        34.4162036553291     
+3155805 10957 15:45:00  6.703218E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516186E-02  7.953408E-02
+  -2.12635626594627       -2.11974958976912       -337.500000000000     
+  -2.12466109954154        1.00000000000000     
+ -0.162937491178885       2.463762933870645E-009  -2.12455988099777     
+   34.4144278915594      -2.296919035547893E-007
+ -8.479291106677777E-008  4.774789632955647E-005  4.774789632955647E-005
+   34.4162036554851        34.4162036554851     
+3155806 10957 15:50:00  6.703218E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714493E-03  4.516186E-02  7.953408E-02
+  -2.12635626595290       -2.11974958978238       -337.500000000000     
+  -2.12466109955044        1.00000000000000     
+ -0.162937491178885       2.463762899082477E-009  -2.12455988100676     
+   34.4144278917172      -2.296919003115512E-007
+ -8.479290986869555E-008  4.774789569770049E-005  4.774789569770049E-005
+   34.4162036556413        34.4162036556413     
+3155807 10957 15:55:00  6.703218E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516186E-02  7.953408E-02
+  -2.12635626595936       -2.11974958979531       -337.500000000000     
+  -2.12466109955936        1.00000000000000     
+ -0.162937491178885       2.463762852908505E-009  -2.12455988101577     
+   34.4144278918752      -2.296918960068120E-007
+ -8.479290827576842E-008  4.774789484178298E-005  4.774789484178298E-005
+   34.4162036557977        34.4162036557977     
+3155808 10957 16:00:00  6.703218E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516186E-02  7.953408E-02
+  -2.12635626596555       -2.11974958980769       -337.500000000000     
+  -2.12466109956825        1.00000000000000     
+ -0.162937491178885       2.463762842563215E-009  -2.12455988102472     
+   34.4144278920322      -2.296918950423105E-007
+ -8.479290792851297E-008  4.774789467528129E-005  4.774789467528129E-005
+   34.4162036559537        34.4162036559537     
+3155809 10957 16:05:00  6.703218E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516186E-02  7.953408E-02
+  -2.12635626597174       -2.11974958982006       -337.500000000000     
+  -2.12466109957716        1.00000000000000     
+ -0.162937491178885       2.463762847986781E-009  -2.12455988103371     
+   34.4144278921899      -2.296918955479318E-007
+ -8.479290811664122E-008  4.774789481408163E-005  4.774789481408163E-005
+   34.4162036561101        34.4162036561101     
+3155810 10957 16:10:00  6.703218E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516186E-02  7.953408E-02
+  -2.12635626597800       -2.11974958983259       -337.500000000000     
+  -2.12466109958608        1.00000000000000     
+ -0.162937491178885       2.463762854386404E-009  -2.12455988104271     
+   34.4144278923479      -2.296918961445425E-007
+ -8.479290832806789E-008  4.774789497307068E-005  4.774789497307068E-005
+   34.4162036562667        34.4162036562667     
+3155811 10957 16:15:00  6.703217E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516186E-02  7.953408E-02
+  -2.12635626598432       -2.11974958984523       -337.500000000000     
+  -2.12466109959499        1.00000000000000     
+ -0.162937491178885       2.463762851914032E-009  -2.12455988105168     
+   34.4144278925052      -2.296918959140161E-007
+ -8.479290825230039E-008  4.774789496154881E-005  4.774789496154881E-005
+   34.4162036564229        34.4162036564229     
+3155812 10957 16:20:00  6.703217E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516186E-02  7.953408E-02
+  -2.12635626599066       -2.11974958985790       -337.500000000000     
+  -2.12466109960389        1.00000000000000     
+ -0.162937491178885       2.463762842650692E-009  -2.12455988106067     
+   34.4144278926629      -2.296918950503966E-007
+ -8.479290792921529E-008  4.774789481859273E-005  4.774789481859273E-005
+   34.4162036565791        34.4162036565791     
+3155813 10957 16:25:00  6.703217E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516186E-02  7.953408E-02
+  -2.12635626599697       -2.11974958987053       -337.500000000000     
+  -2.12466109961280        1.00000000000000     
+ -0.162937491178885       2.463762866739058E-009  -2.12455988106965     
+   34.4144278928205      -2.296918972960781E-007
+ -8.479290876086615E-008  4.774789532167897E-005  4.774789532167897E-005
+   34.4162036567353        34.4162036567353     
+3155814 10957 16:30:00  6.703217E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516186E-02  7.953408E-02
+  -2.12635626600347       -2.11974958988353       -337.500000000000     
+  -2.12466109962170        1.00000000000000     
+ -0.162937491178885       2.463762878907550E-009  -2.12455988107864     
+   34.4144278929781      -2.296918984305362E-007
+ -8.479290917765694E-008  4.774789559726650E-005  4.774789559726650E-005
+   34.4162036568915        34.4162036568915     
+3155815 10957 16:35:00  6.703217E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516186E-02  7.953407E-02
+  -2.12635626601007       -2.11974958989672       -337.500000000000     
+  -2.12466109963059        1.00000000000000     
+ -0.162937491178885       2.463762858995053E-009  -2.12455988108762     
+   34.4144278931357      -2.296918965740766E-007
+ -8.479290849259767E-008  4.774789525315348E-005  4.774789525315348E-005
+   34.4162036570475        34.4162036570475     
+3155816 10957 16:40:00  6.703217E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516186E-02  7.953407E-02
+  -2.12635626601662       -2.11974958990982       -337.500000000000     
+  -2.12466109963952        1.00000000000000     
+ -0.162937491178885       2.463762829819217E-009  -2.12455988109663     
+   34.4144278932938      -2.296918938540831E-007
+ -8.479290748832395E-008  4.774789472833167E-005  4.774789472833167E-005
+   34.4162036572041        34.4162036572041     
+3155817 10957 16:45:00  6.703217E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516185E-02  7.953407E-02
+  -2.12635626602299       -2.11974958992257       -337.500000000000     
+  -2.12466109964841        1.00000000000000     
+ -0.162937491178885       2.463762800588133E-009  -2.12455988110561     
+   34.4144278934512      -2.296918911288982E-007
+ -8.479290648138842E-008  4.774789419933605E-005  4.774789419933605E-005
+   34.4162036573601        34.4162036573601     
+3155818 10957 16:50:00  6.703217E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516185E-02  7.953407E-02
+  -2.12635626602926       -2.11974958993512       -337.500000000000     
+  -2.12466109965733        1.00000000000000     
+ -0.162937491178885       2.463762799156275E-009  -2.12455988111460     
+   34.4144278936090      -2.296918909953840E-007
+ -8.479290643561163E-008  4.774789420680384E-005  4.774789420680384E-005
+   34.4162036575167        34.4162036575167     
+3155819 10957 16:55:00  6.703217E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516185E-02  7.953407E-02
+  -2.12635626603553       -2.11974958994765       -337.500000000000     
+  -2.12466109966624        1.00000000000000     
+ -0.162937491178885       2.463762789828479E-009  -2.12455988112358     
+   34.4144278937666      -2.296918901257467E-007
+ -8.479290611216107E-008  4.774789406134924E-005  4.774789406134924E-005
+   34.4162036576728        34.4162036576728     
+3155820 10957 17:00:00  6.703217E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516185E-02  7.953407E-02
+  -2.12635626604178       -2.11974958996015       -337.500000000000     
+  -2.12466109967515        1.00000000000000     
+ -0.162937491178885       2.463762755625025E-009  -2.12455988113257     
+   34.4144278939242      -2.296918869370203E-007
+ -8.479290493445812E-008  4.774789343332650E-005  4.774789343332650E-005
+   34.4162036578292        34.4162036578292     
+3155821 10957 17:05:00  6.703217E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516185E-02  7.953407E-02
+  -2.12635626604785       -2.11974958997228       -337.500000000000     
+  -2.12466109968407        1.00000000000000     
+ -0.162937491178885       2.463762751555049E-009  -2.12455988114154     
+   34.4144278940816      -2.296918865575717E-007
+ -8.479290480253146E-008  4.774789338578622E-005  4.774789338578622E-005
+   34.4162036579856        34.4162036579856     
+3155822 10957 17:10:00  6.703217E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516185E-02  7.953407E-02
+  -2.12635626605390       -2.11974958998438       -337.500000000000     
+  -2.12466109969296        1.00000000000000     
+ -0.162937491178885       2.463762766587257E-009  -2.12455988115051     
+   34.4144278942390      -2.296918879589573E-007
+ -8.479290531710714E-008  4.774789370822182E-005  4.774789370822182E-005
+   34.4162036581417        34.4162036581417     
+3155823 10957 17:15:00  6.703217E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516185E-02  7.953407E-02
+  -2.12635626606012       -2.11974958999682       -337.500000000000     
+  -2.12466109970190        1.00000000000000     
+ -0.162937491178885       2.463762787880968E-009  -2.12455988115951     
+   34.4144278943970      -2.296918899441166E-007
+ -8.479290605177027E-008  4.774789415497351E-005  4.774789415497351E-005
+   34.4162036582985        34.4162036582985     
+3155824 10957 17:20:00  6.703216E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516185E-02  7.953407E-02
+  -2.12635626606644       -2.11974959000946       -337.500000000000     
+  -2.12466109971078        1.00000000000000     
+ -0.162937491178885       2.463762790067889E-009  -2.12455988116847     
+   34.4144278945541      -2.296918901479839E-007
+ -8.479290612376012E-008  4.774789423391567E-005  4.774789423391567E-005
+   34.4162036584542        34.4162036584542     
+3155825 10957 17:25:00  6.703216E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516185E-02  7.953406E-02
+  -2.12635626607286       -2.11974959002230       -337.500000000000     
+  -2.12466109971970        1.00000000000000     
+ -0.162937491178885       2.463762753115820E-009  -2.12455988117747     
+   34.4144278947121      -2.296918867029974E-007
+ -8.479290485483500E-008  4.774789355586217E-005  4.774789355586217E-005
+   34.4162036586108        34.4162036586108     
+3155826 10957 17:30:00  6.703216E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516185E-02  7.953406E-02
+  -2.12635626607906       -2.11974959003472       -337.500000000000     
+  -2.12466109972861        1.00000000000000     
+ -0.162937491178885       2.463762731536659E-009  -2.12455988118646     
+   34.4144278948697      -2.296918846911971E-007
+ -8.479290410848417E-008  4.774789317169418E-005  4.774789317169418E-005
+   34.4162036587671        34.4162036587671     
+3155827 10957 17:35:00  6.703216E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516185E-02  7.953406E-02
+  -2.12635626608519       -2.11974959004697       -337.500000000000     
+  -2.12466109973753        1.00000000000000     
+ -0.162937491178885       2.463762742130568E-009  -2.12455988119544     
+   34.4144278950272      -2.296918856788266E-007
+ -8.479290447886744E-008  4.774789340949436E-005  4.774789340949436E-005
+   34.4162036589236        34.4162036589236     
+3155828 10957 17:40:00  6.703216E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516185E-02  7.953406E-02
+  -2.12635626609139       -2.11974959005937       -337.500000000000     
+  -2.12466109974642        1.00000000000000     
+ -0.162937491178885       2.463762746044006E-009  -2.12455988120440     
+   34.4144278951845      -2.296918860436409E-007
+ -8.479290461369998E-008  4.774789351942960E-005  4.774789351942960E-005
+   34.4162036590796        34.4162036590796     
+3155829 10957 17:45:00  6.703216E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516185E-02  7.953406E-02
+  -2.12635626609767       -2.11974959007192       -337.500000000000     
+  -2.12466109975533        1.00000000000000     
+ -0.162937491178885       2.463762724243851E-009  -2.12455988121339     
+   34.4144278953422      -2.296918840112462E-007
+ -8.479290386280484E-008  4.774789313232060E-005  4.774789313232060E-005
+   34.4162036592359        34.4162036592359     
+3155830 10957 17:50:00  6.703216E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516185E-02  7.953406E-02
+  -2.12635626610385       -2.11974959008428       -337.500000000000     
+  -2.12466109976425        1.00000000000000     
+ -0.162937491178885       2.463762718382902E-009  -2.12455988122238     
+   34.4144278954998      -2.296918834648226E-007
+ -8.479290366254793E-008  4.774789305222557E-005  4.774789305222557E-005
+   34.4162036593923        34.4162036593923     
+3155831 10957 17:55:00  6.703216E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516185E-02  7.953406E-02
+  -2.12635626611003       -2.11974959009666       -337.500000000000     
+  -2.12466109977318        1.00000000000000     
+ -0.162937491178885       2.463762731274229E-009  -2.12455988123138     
+   34.4144278956578      -2.296918846666203E-007
+ -8.479290410180929E-008  4.774789333549881E-005  4.774789333549881E-005
+   34.4162036595490        34.4162036595490     
+3155832 10957 18:00:00  6.703216E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516185E-02  7.953406E-02
+  -2.12635626611628       -2.11974959010916       -337.500000000000     
+  -2.12466109978206        1.00000000000000     
+ -0.162937491178885       2.463762739520074E-009  -2.12455988124034     
+   34.4144278958150      -2.296918854353376E-007
+ -8.479290438657596E-008  4.774789353043695E-005  4.774789353043695E-005
+   34.4162036597049        34.4162036597049     
+3155833 10957 18:05:00  6.703216E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516184E-02  7.953406E-02
+  -2.12635626612264       -2.11974959012187       -337.500000000000     
+  -2.12466109979097        1.00000000000000     
+ -0.162937491178885       2.463762736269618E-009  -2.12455988124932     
+   34.4144278959725      -2.296918851322939E-007
+ -8.479290428015430E-008  4.774789350451922E-005  4.774789350451922E-005
+   34.4162036598612        34.4162036598612     
+3155834 10957 18:10:00  6.703216E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516184E-02  7.953406E-02
+  -2.12635626612902       -2.11974959013464       -337.500000000000     
+  -2.12466109979989        1.00000000000000     
+ -0.162937491178885       2.463762745012700E-009  -2.12455988125833     
+   34.4144278961305      -2.296918859473887E-007
+ -8.479290457438872E-008  4.774789371128475E-005  4.774789371128475E-005
+   34.4162036600176        34.4162036600176     
+3155835 10957 18:15:00  6.703216E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516184E-02  7.953405E-02
+  -2.12635626613546       -2.11974959014751       -337.500000000000     
+  -2.12466109980878        1.00000000000000     
+ -0.162937491178885       2.463762748562419E-009  -2.12455988126730     
+   34.4144278962879      -2.296918862782980E-007
+ -8.479290469926622E-008  4.774789381886234E-005  4.774789381886234E-005
+   34.4162036601736        34.4162036601736     
+3155836 10957 18:20:00  6.703216E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516184E-02  7.953405E-02
+  -2.12635626614198       -2.11974959016056       -337.500000000000     
+  -2.12466109981770        1.00000000000000     
+ -0.162937491178885       2.463762732770544E-009  -2.12455988127629     
+   34.4144278964457      -2.296918848060171E-007
+ -8.479290415785236E-008  4.774789355296290E-005  4.774789355296290E-005
+   34.4162036603300        34.4162036603300     
+3155837 10957 18:25:00  6.703215E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516184E-02  7.953405E-02
+  -2.12635626614843       -2.11974959017346       -337.500000000000     
+  -2.12466109982660        1.00000000000000     
+ -0.162937491178885       2.463762704649034E-009  -2.12455988128527     
+   34.4144278966033      -2.296918821843056E-007
+ -8.479290319263003E-008  4.774789304688336E-005  4.774789304688336E-005
+   34.4162036604862        34.4162036604862     
+3155838 10957 18:30:00  6.703215E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516184E-02  7.953405E-02
+  -2.12635626615476       -2.11974959018610       -337.500000000000     
+  -2.12466109983550        1.00000000000000     
+ -0.162937491178885       2.463762689662866E-009  -2.12455988129425     
+   34.4144278967608      -2.296918807871641E-007
+ -8.479290267558390E-008  4.774789279279494E-005  4.774789279279494E-005
+   34.4162036606423        34.4162036606423     
+3155839 10957 18:35:00  6.703215E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516184E-02  7.953405E-02
+  -2.12635626616103       -2.11974959019865       -337.500000000000     
+  -2.12466109984440        1.00000000000000     
+ -0.162937491178885       2.463762689432664E-009  -2.12455988130323     
+   34.4144278969183      -2.296918807656447E-007
+ -8.479290267157379E-008  4.774789282378208E-005  4.774789282378208E-005
+   34.4162036607986        34.4162036607986     
+3155840 10957 18:40:00  6.703215E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516184E-02  7.953405E-02
+  -2.12635626616735       -2.11974959021130       -337.500000000000     
+  -2.12466109985333        1.00000000000000     
+ -0.162937491178885       2.463762693129712E-009  -2.12455988131223     
+   34.4144278970762      -2.296918811103032E-007
+ -8.479290279974785E-008  4.774789293168744E-005  4.774789293168744E-005
+   34.4162036609551        34.4162036609551     
+3155841 10957 18:45:00  6.703215E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516184E-02  7.953405E-02
+  -2.12635626617371       -2.11974959022400       -337.500000000000     
+  -2.12466109986222        1.00000000000000     
+ -0.162937491178885       2.463762691536713E-009  -2.12455988132120     
+   34.4144278972336      -2.296918809617906E-007
+ -8.479290274172626E-008  4.774789293780074E-005  4.774789293780074E-005
+   34.4162036611111        34.4162036611111     
+3155842 10957 18:50:00  6.703215E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516184E-02  7.953405E-02
+  -2.12635626618009       -2.11974959023678       -337.500000000000     
+  -2.12466109987113        1.00000000000000     
+ -0.162937491178885       2.463762675022002E-009  -2.12455988133019     
+   34.4144278973914      -2.296918794221279E-007
+ -8.479290217223895E-008  4.774789265532846E-005  4.774789265532846E-005
+   34.4162036612674        34.4162036612674     
+3155843 10957 18:55:00  6.703215E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516184E-02  7.953405E-02
+  -2.12635626618642       -2.11974959024942       -337.500000000000     
+  -2.12466109988004        1.00000000000000     
+ -0.162937491178885       2.463762686320329E-009  -2.12455988133918     
+   34.4144278975490      -2.296918804754312E-007
+ -8.479290256343560E-008  4.774789291058076E-005  4.774789291058076E-005
+   34.4162036614238        34.4162036614238     
+3155844 10957 19:00:00  6.703215E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516184E-02  7.953405E-02
+  -2.12635626619282       -2.11974959026222       -337.500000000000     
+  -2.12466109988894        1.00000000000000     
+ -0.162937491178885       2.463762693880171E-009  -2.12455988134816     
+   34.4144278977065      -2.296918811801989E-007
+ -8.479290282106777E-008  4.774789309501566E-005  4.774789309501566E-005
+   34.4162036615798        34.4162036615798     
+3155845 10957 19:05:00  6.703215E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516184E-02  7.953404E-02
+  -2.12635626619932       -2.11974959027522       -337.500000000000     
+  -2.12466109989786        1.00000000000000     
+ -0.162937491178885       2.463762650063471E-009  -2.12455988135717     
+   34.4144278978646      -2.296918770952315E-007
+ -8.479290131012985E-008  4.774789228545830E-005  4.774789228545830E-005
+   34.4162036617364        34.4162036617364     
+3155846 10957 19:10:00  6.703215E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516184E-02  7.953404E-02
+  -2.12635626620555       -2.11974959028769       -337.500000000000     
+  -2.12466109990676        1.00000000000000     
+ -0.162937491178885       2.463762616371066E-009  -2.12455988136613     
+   34.4144278980219      -2.296918739541279E-007
+ -8.479290015706183E-008  4.774789166729560E-005  4.774789166729560E-005
+   34.4162036618925        34.4162036618925     
+3155847 10957 19:15:00  6.703215E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666915E-04  1.714492E-03  4.516184E-02  7.953404E-02
+  -2.12635626621164       -2.11974959029986       -337.500000000000     
+  -2.12466109991567        1.00000000000000     
+ -0.162937491178885       2.463762620418023E-009  -2.12455988137512     
+   34.4144278981795      -2.296918743314024E-007
+ -8.479290029585816E-008  4.774789177736118E-005  4.774789177736118E-005
+   34.4162036620489        34.4162036620489     
+3155848 10957 19:20:00  6.703214E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714492E-03  4.516184E-02  7.953404E-02
+  -2.12635626621776       -2.11974959031211       -337.500000000000     
+  -2.12466109992457        1.00000000000000     
+ -0.162937491178885       2.463762627632562E-009  -2.12455988138408     
+   34.4144278983368      -2.296918750039883E-007
+ -8.479290054301871E-008  4.774789194978537E-005  4.774789194978537E-005
+   34.4162036622050        34.4162036622050     
+3155849 10957 19:25:00  6.703214E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714492E-03  4.516184E-02  7.953404E-02
+  -2.12635626622399       -2.11974959032457       -337.500000000000     
+  -2.12466109993349        1.00000000000000     
+ -0.162937491178885       2.463762618797398E-009  -2.12455988139307     
+   34.4144278984945      -2.296918741803039E-007
+ -8.479290024115183E-008  4.774789181304576E-005  4.774789181304576E-005
+   34.4162036623614        34.4162036623614     
+3155850 10957 19:30:00  6.703214E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714492E-03  4.516184E-02  7.953404E-02
+  -2.12635626623019       -2.11974959033697       -337.500000000000     
+  -2.12466109994239        1.00000000000000     
+ -0.162937491178885       2.463762591541449E-009  -2.12455988140205     
+   34.4144278986520      -2.296918716392492E-007
+ -8.479289930401525E-008  4.774789131876924E-005  4.774789131876924E-005
+   34.4162036625177        34.4162036625177     
+3155851 10957 19:35:00  6.703214E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714492E-03  4.516183E-02  7.953404E-02
+  -2.12635626623626       -2.11974959034910       -337.500000000000     
+  -2.12466109995130        1.00000000000000     
+ -0.162937491178885       2.463762591200750E-009  -2.12455988141102     
+   34.4144278988094      -2.296918716074560E-007
+ -8.479289929198584E-008  4.774789134352092E-005  4.774789134352092E-005
+   34.4162036626739        34.4162036626739     
+3155852 10957 19:40:00  6.703214E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714492E-03  4.516183E-02  7.953404E-02
+  -2.12635626624237       -2.11974959036134       -337.500000000000     
+  -2.12466109996022        1.00000000000000     
+ -0.162937491178885       2.463762608663894E-009  -2.12455988142001     
+   34.4144278989671      -2.296918732354975E-007
+ -8.479289989279097E-008  4.774789171413127E-005  4.774789171413127E-005
+   34.4162036628305        34.4162036628305     
+3155853 10957 19:45:00  6.703214E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714492E-03  4.516183E-02  7.953404E-02
+  -2.12635626624861       -2.11974959037380       -337.500000000000     
+  -2.12466109996913        1.00000000000000     
+ -0.162937491178885       2.463762635491667E-009  -2.12455988142899     
+   34.4144278991246      -2.296918757365787E-007
+ -8.479290081720142E-008  4.774789226868727E-005  4.774789226868727E-005
+   34.4162036629867        34.4162036629867     
+3155854 10957 19:50:00  6.703214E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714492E-03  4.516183E-02  7.953403E-02
+  -2.12635626625503       -2.11974959038666       -337.500000000000     
+  -2.12466109997803        1.00000000000000     
+ -0.162937491178885       2.463762628383021E-009  -2.12455988143797     
+   34.4144278992822      -2.296918750738396E-007
+ -8.479290057085893E-008  4.774789216932805E-005  4.774789216932805E-005
+   34.4162036631428        34.4162036631428     
+3155855 10957 19:55:00  6.703214E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714492E-03  4.516183E-02  7.953403E-02
+  -2.12635626626144       -2.11974959039948       -337.500000000000     
+  -2.12466109998693        1.00000000000000     
+ -0.162937491178885       2.463762588346242E-009  -2.12455988144695     
+   34.4144278994398      -2.296918713412644E-007
+ -8.479289919210613E-008  4.774789143153088E-005  4.774789143153088E-005
+   34.4162036632990        34.4162036632990     
+3155856 10957 20:00:00  6.703214E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714492E-03  4.516183E-02  7.953403E-02
+  -2.12635626626768       -2.11974959041194       -337.500000000000     
+  -2.12466109999585        1.00000000000000     
+ -0.162937491178885       2.463762609197964E-009  -2.12455988145595     
+   34.4144278995976      -2.296918732852262E-007
+ -8.479289991389135E-008  4.774789187007562E-005  4.774789187007562E-005
+   34.4162036634556        34.4162036634556     
+3155857 10957 20:05:00  6.703214E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516183E-02  7.953403E-02
+  -2.12635626627404       -2.11974959042467       -337.500000000000     
+  -2.12466110000475        1.00000000000000     
+ -0.162937491178885       2.463762590666681E-009  -2.12455988146493     
+   34.4144278997552      -2.296918715575612E-007
+ -8.479289927154324E-008  4.774789154810297E-005  4.774789154810297E-005
+   34.4162036636117        34.4162036636117     
+3155858 10957 20:10:00  6.703214E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516183E-02  7.953403E-02
+  -2.12635626628034       -2.11974959043726       -337.500000000000     
+  -2.12466110001367        1.00000000000000     
+ -0.162937491178885       2.463762569953080E-009  -2.12455988147392     
+   34.4144278999128      -2.296918696264699E-007
+ -8.479289856286813E-008  4.774789118247592E-005  4.774789118247592E-005
+   34.4162036637681        34.4162036637681     
+3155859 10957 20:15:00  6.703214E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516183E-02  7.953403E-02
+  -2.12635626628652       -2.11974959044962       -337.500000000000     
+  -2.12466110002256        1.00000000000000     
+ -0.162937491178885       2.463762568659344E-009  -2.12455988148289     
+   34.4144279000702      -2.296918695058241E-007
+ -8.479289851539337E-008  4.774789119108911E-005  4.774789119108911E-005
+   34.4162036639241        34.4162036639241     
+3155860 10957 20:20:00  6.703213E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516183E-02  7.953403E-02
+  -2.12635626629276       -2.11974959046211       -337.500000000000     
+  -2.12466110003149        1.00000000000000     
+ -0.162937491178885       2.463762574584750E-009  -2.12455988149188     
+   34.4144279002279      -2.296918700582056E-007
+ -8.479289872557502E-008  4.774789134058853E-005  4.774789134058853E-005
+   34.4162036640807        34.4162036640807     
+3155861 10957 20:25:00  6.703213E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516183E-02  7.953403E-02
+  -2.12635626629905       -2.11974959047468       -337.500000000000     
+  -2.12466110004039        1.00000000000000     
+ -0.162937491178885       2.463762582135385E-009  -2.12455988150086     
+   34.4144279003855      -2.296918707621394E-007
+ -8.479289897955424E-008  4.774789152258419E-005  4.774789152258419E-005
+   34.4162036642369        34.4162036642369     
+3155862 10957 20:30:00  6.703213E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516183E-02  7.953403E-02
+  -2.12635626630545       -2.11974959048749       -337.500000000000     
+  -2.12466110004931        1.00000000000000     
+ -0.162937491178885       2.463762583719176E-009  -2.12455988150986     
+   34.4144279005435      -2.296918709097663E-007
+ -8.479289903553982E-008  4.774789159098576E-005  4.774789159098576E-005
+   34.4162036643934        34.4162036643934     
+3155863 10957 20:35:00  6.703213E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516183E-02  7.953403E-02
+  -2.12635626631186       -2.11974959050031       -337.500000000000     
+  -2.12466110005820        1.00000000000000     
+ -0.162937491178885       2.463762581739436E-009  -2.12455988151883     
+   34.4144279007008      -2.296918707251885E-007
+ -8.479289897199709E-008  4.774789159093322E-005  4.774789159093322E-005
+   34.4162036645494        34.4162036645494     
+3155864 10957 20:40:00  6.703213E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516183E-02  7.953402E-02
+  -2.12635626631831       -2.11974959051320       -337.500000000000     
+  -2.12466110006710        1.00000000000000     
+ -0.162937491178885       2.463762556150152E-009  -2.12455988152781     
+   34.4144279008584      -2.296918683395206E-007
+ -8.479289808688410E-008  4.774789113378528E-005  4.774789113378528E-005
+   34.4162036647055        34.4162036647055     
+3155865 10957 20:45:00  6.703213E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516183E-02  7.953402E-02
+  -2.12635626632465       -2.11974959052589       -337.500000000000     
+  -2.12466110007601        1.00000000000000     
+ -0.162937491178885       2.463762541191608E-009  -2.12455988153680     
+   34.4144279010160      -2.296918669449402E-007
+ -8.479289757922890E-008  4.774789088059076E-005  4.774789088059076E-005
+   34.4162036648619        34.4162036648619     
+3155866 10957 20:50:00  6.703213E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516183E-02  7.953402E-02
+  -2.12635626633091       -2.11974959053841       -337.500000000000     
+  -2.12466110008491        1.00000000000000     
+ -0.162937491178885       2.463762546652006E-009  -2.12455988154578     
+   34.4144279011736      -2.296918674539815E-007
+ -8.479289776106356E-008  4.774789102157882E-005  4.774789102157882E-005
+   34.4162036650180        34.4162036650180     
+3155867 10957 20:55:00  6.703213E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516183E-02  7.953402E-02
+  -2.12635626633725       -2.11974959055109       -337.500000000000     
+  -2.12466110009383        1.00000000000000     
+ -0.162937491178885       2.463762514792012E-009  -2.12455988155477     
+   34.4144279013312      -2.296918644837304E-007
+ -8.479289666956602E-008  4.774789044076205E-005  4.774789044076205E-005
+   34.4162036651744        34.4162036651744     
+3155868 10957 21:00:00  6.703213E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516182E-02  7.953402E-02
+  -2.12635626634342       -2.11974959056343       -337.500000000000     
+  -2.12466110010274        1.00000000000000     
+ -0.162937491178885       2.463762497038813E-009  -2.12455988156375     
+   34.4144279014888      -2.296918628286135E-007
+ -8.479289605772278E-008  4.774789013004417E-005  4.774789013004417E-005
+   34.4162036653308        34.4162036653308     
+3155869 10957 21:05:00  6.703213E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516182E-02  7.953402E-02
+  -2.12635626634951       -2.11974959057560       -337.500000000000     
+  -2.12466110011165        1.00000000000000     
+ -0.162937491178885       2.463762498728497E-009  -2.12455988157272     
+   34.4144279016463      -2.296918629861100E-007
+ -8.479289611697017E-008  4.774789019455056E-005  4.774789019455056E-005
+   34.4162036654871        34.4162036654871     
+3155870 10957 21:10:00  6.703213E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516182E-02  7.953402E-02
+  -2.12635626635564       -2.11974959058787       -337.500000000000     
+  -2.12466110012056        1.00000000000000     
+ -0.162937491178885       2.463762503060904E-009  -2.12455988158171     
+   34.4144279018039      -2.296918633899951E-007
+ -8.479289626526094E-008  4.774789031110894E-005  4.774789031110894E-005
+   34.4162036656434        34.4162036656434     
+3155871 10957 21:15:00  6.703213E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516182E-02  7.953402E-02
+  -2.12635626636184       -2.11974959060026       -337.500000000000     
+  -2.12466110012948        1.00000000000000     
+ -0.162937491178885       2.463762509888703E-009  -2.12455988159070     
+   34.4144279019616      -2.296918640265216E-007
+ -8.479289649884837E-008  4.774789047722739E-005  4.774789047722739E-005
+   34.4162036657998        34.4162036657998     
+3155872 10957 21:20:00  6.703213E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516182E-02  7.953402E-02
+  -2.12635626636809       -2.11974959061277       -337.500000000000     
+  -2.12466110013837        1.00000000000000     
+ -0.162937491178885       2.463762513175992E-009  -2.12455988159966     
+   34.4144279021189      -2.296918643329552E-007
+ -8.479289661528673E-008  4.774789057604047E-005  4.774789057604047E-005
+   34.4162036659559        34.4162036659559     
+3155873 10957 21:25:00  6.703212E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516182E-02  7.953402E-02
+  -2.12635626637441       -2.11974959062540       -337.500000000000     
+  -2.12466110014727        1.00000000000000     
+ -0.162937491178885       2.463762527881313E-009  -2.12455988160864     
+   34.4144279022763      -2.296918657038990E-007
+ -8.479289712412178E-008  4.774789089734531E-005  4.774789089734531E-005
+   34.4162036661121        34.4162036661121     
+3155874 10957 21:30:00  6.703212E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516182E-02  7.953401E-02
+  -2.12635626638086       -2.11974959063831       -337.500000000000     
+  -2.12466110015618        1.00000000000000     
+ -0.162937491178885       2.463762504133647E-009  -2.12455988161763     
+   34.4144279024341      -2.296918634899368E-007
+ -8.479289630527424E-008  4.774789047598380E-005  4.774789047598380E-005
+   34.4162036662684        34.4162036662684     
+3155875 10957 21:35:00  6.703212E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516182E-02  7.953401E-02
+  -2.12635626638721       -2.11974959065102       -337.500000000000     
+  -2.12466110016510        1.00000000000000     
+ -0.162937491178885       2.463762476500166E-009  -2.12455988162663     
+   34.4144279025919      -2.296918609136873E-007
+ -8.479289535312409E-008  4.774788997726525E-005  4.774788997726525E-005
+   34.4162036664248        34.4162036664248     
+3155876 10957 21:40:00  6.703212E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516182E-02  7.953401E-02
+  -2.12635626639340       -2.11974959066338       -337.500000000000     
+  -2.12466110017399        1.00000000000000     
+ -0.162937491178885       2.463762463654879E-009  -2.12455988163559     
+   34.4144279027491      -2.296918597161225E-007
+ -8.479289491062615E-008  4.774788976209880E-005  4.774788976209880E-005
+   34.4162036665807        34.4162036665807     
+3155877 10957 21:45:00  6.703212E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516182E-02  7.953401E-02
+  -2.12635626639960       -2.11974959067578       -337.500000000000     
+  -2.12466110018294        1.00000000000000     
+ -0.162937491178885       2.463762457444022E-009  -2.12455988164460     
+   34.4144279029073      -2.296918591370734E-007
+ -8.479289470125871E-008  4.774788967534507E-005  4.774788967534507E-005
+   34.4162036667377        34.4162036667377     
+3155878 10957 21:50:00  6.703212E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516182E-02  7.953401E-02
+  -2.12635626640574       -2.11974959068806       -337.500000000000     
+  -2.12466110019183        1.00000000000000     
+ -0.162937491178885       2.463762472015826E-009  -2.12455988165358     
+   34.4144279030648      -2.296918604955647E-007
+ -8.479289519549432E-008  4.774788999053023E-005  4.774788999053023E-005
+   34.4162036668938        34.4162036668938     
+3155879 10957 21:55:00  6.703212E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516182E-02  7.953401E-02
+  -2.12635626641200       -2.11974959070058       -337.500000000000     
+  -2.12466110020073        1.00000000000000     
+ -0.162937491178885       2.463762480068301E-009  -2.12455988166255     
+   34.4144279032222      -2.296918612462689E-007
+ -8.479289547207143E-008  4.774789018181201E-005  4.774789018181201E-005
+   34.4162036670499        34.4162036670499     
+3155880 10957 22:00:00  6.703212E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516182E-02  7.953401E-02
+  -2.12635626641836       -2.11974959071331       -337.500000000000     
+  -2.12466110020965        1.00000000000000     
+ -0.162937491178885       2.463762455450470E-009  -2.12455988167154     
+   34.4144279033799      -2.296918589511876E-007
+ -8.479289462727954E-008  4.774788974182870E-005  4.774788974182870E-005
+   34.4162036672063        34.4162036672063     
+3155881 10957 22:05:00  6.703212E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516182E-02  7.953401E-02
+  -2.12635626642459       -2.11974959072577       -337.500000000000     
+  -2.12466110021854        1.00000000000000     
+ -0.162937491178885       2.463762456670542E-009  -2.12455988168050     
+   34.4144279035371      -2.296918590649092E-007
+ -8.479289467727703E-008  4.774788980017123E-005  4.774788980017123E-005
+   34.4162036673624        34.4162036673624     
+3155882 10957 22:10:00  6.703212E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516182E-02  7.953401E-02
+  -2.12635626643089       -2.11974959073836       -337.500000000000     
+  -2.12466110022746        1.00000000000000     
+ -0.162937491178885       2.463762489336245E-009  -2.12455988168950     
+   34.4144279036950      -2.296918621102499E-007
+ -8.479289579500036E-008  4.774789046893361E-005  4.774789046893361E-005
+   34.4162036675189        34.4162036675189     
+3155883 10957 22:15:00  6.703212E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516182E-02  7.953401E-02
+  -2.12635626643742       -2.11974959075142       -337.500000000000     
+  -2.12466110023637        1.00000000000000     
+ -0.162937491178885       2.463762501923705E-009  -2.12455988169849     
+   34.4144279038527      -2.296918632837151E-007
+ -8.479289623405697E-008  4.774789075323822E-005  4.774789075323822E-005
+   34.4162036676752        34.4162036676752     
+3155884 10957 22:20:00  6.703212E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516182E-02  7.953400E-02
+  -2.12635626644405       -2.11974959076468       -337.500000000000     
+  -2.12466110024527        1.00000000000000     
+ -0.162937491178885       2.463762452655814E-009  -2.12455988170749     
+   34.4144279040107      -2.296918586905657E-007
+ -8.479289453041568E-008  4.774788984070802E-005  4.774788984070802E-005
+   34.4162036678314        34.4162036678314     
+3155885 10957 22:25:00  6.703212E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516182E-02  7.953400E-02
+  -2.12635626645040       -2.11974959077738       -337.500000000000     
+  -2.12466110025417        1.00000000000000     
+ -0.162937491178885       2.463762429373157E-009  -2.12455988171645     
+   34.4144279041679      -2.296918565199434E-007
+ -8.479289373772307E-008  4.774788942662342E-005  4.774788942662342E-005
+   34.4162036679874        34.4162036679874     
+3155886 10957 22:30:00  6.703211E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516182E-02  7.953400E-02
+  -2.12635626645665       -2.11974959078989       -337.500000000000     
+  -2.12466110026306        1.00000000000000     
+ -0.162937491178885       2.463762432453263E-009  -2.12455988172543     
+   34.4144279043253      -2.296918568070911E-007
+ -8.479289384079383E-008  4.774788952134804E-005  4.774788952134804E-005
+   34.4162036681434        34.4162036681434     
+3155887 10957 22:35:00  6.703211E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516181E-02  7.953400E-02
+  -2.12635626646299       -2.11974959080257       -337.500000000000     
+  -2.12466110027198        1.00000000000000     
+ -0.162937491178885       2.463762433208326E-009  -2.12455988173443     
+   34.4144279044832      -2.296918568774388E-007
+ -8.479289386827496E-008  4.774788957255204E-005  4.774788957255204E-005
+   34.4162036683000        34.4162036683000     
+3155888 10957 22:40:00  6.703211E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516181E-02  7.953400E-02
+  -2.12635626646935       -2.11974959081530       -337.500000000000     
+  -2.12466110028089        1.00000000000000     
+ -0.162937491178885       2.463762433664127E-009  -2.12455988174341     
+   34.4144279046408      -2.296918569199223E-007
+ -8.479289388408892E-008  4.774788961852352E-005  4.774788961852352E-005
+   34.4162036684562        34.4162036684562     
+3155889 10957 22:45:00  6.703211E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516181E-02  7.953400E-02
+  -2.12635626647574       -2.11974959082806       -337.500000000000     
+  -2.12466110028978        1.00000000000000     
+ -0.162937491178885       2.463762415017743E-009  -2.12455988175238     
+   34.4144279047982      -2.296918551815454E-007
+ -8.479289324134615E-008  4.774788929480021E-005  4.774788929480021E-005
+   34.4162036686122        34.4162036686122     
+3155890 10957 22:50:00  6.703211E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516181E-02  7.953400E-02
+  -2.12635626648204       -2.11974959084067       -337.500000000000     
+  -2.12466110029868        1.00000000000000     
+ -0.162937491178885       2.463762403056433E-009  -2.12455988176135     
+   34.4144279049555      -2.296918540664155E-007
+ -8.479289283656844E-008  4.774788909915507E-005  4.774788909915507E-005
+   34.4162036687683        34.4162036687683     
+3155891 10957 22:55:00  6.703211E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516181E-02  7.953400E-02
+  -2.12635626648834       -2.11974959085327       -337.500000000000     
+  -2.12466110030761        1.00000000000000     
+ -0.162937491178885       2.463762408585891E-009  -2.12455988177037     
+   34.4144279051137      -2.296918545818881E-007
+ -8.479289301909900E-008  4.774788924187241E-005  4.774788924187241E-005
+   34.4162036689251        34.4162036689251     
+3155892 10957 23:00:00  6.703211E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516181E-02  7.953400E-02
+  -2.12635626649468       -2.11974959086596       -337.500000000000     
+  -2.12466110031653        1.00000000000000     
+ -0.162937491178885       2.463762410574839E-009  -2.12455988177936     
+   34.4144279052715      -2.296918547672673E-007
+ -8.479289308984887E-008  4.774788931705944E-005  4.774788931705944E-005
+   34.4162036690815        34.4162036690815     
+3155893 10957 23:05:00  6.703211E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516181E-02  7.953400E-02
+  -2.12635626650104       -2.11974959087866       -337.500000000000     
+  -2.12466110032542        1.00000000000000     
+ -0.162937491178885       2.463762380022393E-009  -2.12455988178832     
+   34.4144279054286      -2.296918519189182E-007
+ -8.479289204296616E-008  4.774788876213004E-005  4.774788876213004E-005
+   34.4162036692374        34.4162036692374     
+3155894 10957 23:10:00  6.703211E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516181E-02  7.953399E-02
+  -2.12635626650726       -2.11974959089111       -337.500000000000     
+  -2.12466110033432        1.00000000000000     
+ -0.162937491178885       2.463762371141190E-009  -2.12455988179730     
+   34.4144279055862      -2.296918510909037E-007
+ -8.479289173261333E-008  4.774788862443298E-005  4.774788862443298E-005
+   34.4162036693936        34.4162036693936     
+3155895 10957 23:15:00  6.703211E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516181E-02  7.953399E-02
+  -2.12635626651349       -2.11974959090357       -337.500000000000     
+  -2.12466110034325        1.00000000000000     
+ -0.162937491178885       2.463762379589613E-009  -2.12455988180630     
+   34.4144279057441      -2.296918518785378E-007
+ -8.479289202500565E-008  4.774788882251886E-005  4.774788882251886E-005
+   34.4162036695502        34.4162036695502     
+3155896 10957 23:20:00  6.703210E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516181E-02  7.953399E-02
+  -2.12635626651978       -2.11974959091615       -337.500000000000     
+  -2.12466110035215        1.00000000000000     
+ -0.162937491178885       2.463762372964392E-009  -2.12455988181528     
+   34.4144279059017      -2.296918512608617E-007
+ -8.479289179659143E-008  4.774788872981615E-005  4.774788872981615E-005
+   34.4162036697065        34.4162036697065     
+3155897 10957 23:25:00  6.703210E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516181E-02  7.953399E-02
+  -2.12635626652605       -2.11974959092868       -337.500000000000     
+  -2.12466110036104        1.00000000000000     
+ -0.162937491178885       2.463762342863143E-009  -2.12455988182425     
+   34.4144279060590      -2.296918484545563E-007
+ -8.479289076066283E-008  4.774788818181927E-005  4.774788818181927E-005
+   34.4162036698625        34.4162036698625     
+3155898 10957 23:30:00  6.703210E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516181E-02  7.953399E-02
+  -2.12635626653218       -2.11974959094094       -337.500000000000     
+  -2.12466110036995        1.00000000000000     
+ -0.162937491178885       2.463762342844727E-009  -2.12455988183321     
+   34.4144279062163      -2.296918484528039E-007
+ -8.479289076342104E-008  4.774788821413386E-005  4.774788821413386E-005
+   34.4162036700186        34.4162036700186     
+3155899 10957 23:35:00  6.703210E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516181E-02  7.953399E-02
+  -2.12635626653839       -2.11974959095336       -337.500000000000     
+  -2.12466110037889        1.00000000000000     
+ -0.162937491178885       2.463762358498481E-009  -2.12455988184223     
+   34.4144279063745      -2.296918499121668E-007
+ -8.479289130279413E-008  4.774788855129754E-005  4.774788855129754E-005
+   34.4162036701756        34.4162036701756     
+3155900 10957 23:40:00  6.703210E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516181E-02  7.953399E-02
+  -2.12635626654465       -2.11974959096589       -337.500000000000     
+  -2.12466110038778        1.00000000000000     
+ -0.162937491178885       2.463762367775633E-009  -2.12455988185119     
+   34.4144279065317      -2.296918507770464E-007
+ -8.479289162097981E-008  4.774788876658279E-005  4.774788876658279E-005
+   34.4162036703314        34.4162036703314     
+3155901 10957 23:45:00  6.703210E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516181E-02  7.953399E-02
+  -2.12635626655103       -2.11974959097864       -337.500000000000     
+  -2.12466110039667        1.00000000000000     
+ -0.162937491178885       2.463762375648550E-009  -2.12455988186017     
+   34.4144279066892      -2.296918515110133E-007
+ -8.479289188878323E-008  4.774788895655416E-005  4.774788895655416E-005
+   34.4162036704875        34.4162036704875     
+3155902 10957 23:50:00  6.703210E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516181E-02  7.953399E-02
+  -2.12635626655749       -2.11974959099157       -337.500000000000     
+  -2.12466110040558        1.00000000000000     
+ -0.162937491178885       2.463762371062921E-009  -2.12455988186916     
+   34.4144279068469      -2.296918510834687E-007
+ -8.479289173331009E-008  4.774788890683615E-005  4.774788890683615E-005
+   34.4162036706438        34.4162036706438     
+3155903 10957 23:55:00  6.703210E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516181E-02  7.953399E-02
+  -2.12635626656399       -2.11974959100456       -337.500000000000     
+  -2.12466110041450        1.00000000000000     
+ -0.162937491178885       2.463762339921158E-009  -2.12455988187817     
+   34.4144279070050      -2.296918481801644E-007
+ -8.479289065899870E-008  4.774788834276625E-005  4.774788834276625E-005
+   34.4162036708003        34.4162036708003     
+3155904 10958 00:00:00  6.703210E-06  4.488956E+03  4.488956E+03  3.742552E+14
+           (01,041,24)  1.666914E-04  1.714491E-03  4.516180E-02  7.953399E-02
+  -2.12635626657030       -2.11974959101719       -337.500000000000     
+  -2.12466110042341        1.00000000000000     
+ -0.162937491178885       2.463762326560218E-009  -2.12455988188715     
+   34.4144279071625      -2.296918469345324E-007
+ -8.479289020239888E-008  4.774788812004108E-005  4.774788812004108E-005
+   34.4162036709565        34.4162036709565     
+
+ NETCDF_PUT_FVAR_1D - error while writing variable:  ocean_time
+                      in input file:  ocean_his.nc
+                      call from:  wrt_his.F
+
+ Elapsed CPU time (seconds):
+
+ Node   #  0 CPU:       2.744
+ Node   #  2 CPU:       2.752
+ Node   #  1 CPU:       2.772
+ Node   #  3 CPU:       2.768
+ Node   #  4 CPU:       2.772
+ Node   #  8 CPU:       2.780
+ Node   #  6 CPU:       2.772
+ Node   # 10 CPU:       2.748
+ Node   #  7 CPU:       2.772
+ Node   #  9 CPU:       2.772
+ Node   #  5 CPU:       2.772
+ Node   # 11 CPU:       2.772
+ Node   # 12 CPU:       2.772
+ Node   # 13 CPU:       2.768
+ Node   # 14 CPU:       2.776
+ Node   # 15 CPU:       2.772
+ Node   # 16 CPU:       2.776
+
+ Node   # 24 CPU:       2.780
+ Node   # 17 CPU:       2.772
+ ROMS/TOMS - Output NetCDF summary for Grid 01:
+ Node   # 25 CPU:       2.776
+ Node   # 18 CPU:       2.768
+             number of time records written in HISTORY file = 00000001
+ Node   # 26 CPU:       2.772
+ Node   # 19 CPU:       2.768
+ Node   # 27 CPU:       2.768
+ Node   # 20 CPU:       2.772
+ Node   # 28 CPU:       2.772
+ Node   # 21 CPU:       2.768
+
+ Node   # 29 CPU:       2.776
+ Node   # 22 CPU:       2.772
+ Analytical header files used:
+ Node   # 30 CPU:       2.772
+ Node   # 23 CPU:       2.772
+
+ Node   # 31 CPU:       2.772
+     ROMS/Functionals/ana_btflux.h
+     ROMS/Functionals/ana_grid.h
+     ROMS/Functionals/ana_nudgcoef.h
+     ROMS/Functionals/ana_smflux.h
+     ROMS/Functionals/ana_srflux.h
+     ROMS/Functionals/ana_stflux.h
+     ROMS/Functionals/ana_icedrag.h
+
+ ROMS/TOMS - Output error ............ exit_flag:   3
+
+
+ ERROR: Abnormal termination: NetCDF OUTPUT.
+ REASON: NetCDF: Not a valid ID                                                          
